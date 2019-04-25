@@ -333,6 +333,7 @@
             this.btnAddWholeCAD.Name = "btnAddWholeCAD";
             this.btnAddWholeCAD.Size = new System.Drawing.Size(216, 26);
             this.btnAddWholeCAD.Text = "AddWholeCAD";
+            this.btnAddWholeCAD.Click += new System.EventHandler(this.btnAddWholeCAD_Click);
             // 
             // btnAddRasterByCAD
             // 

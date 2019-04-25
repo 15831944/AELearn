@@ -65,9 +65,20 @@ namespace Code01
         }
         #endregion
 
+        #region CAD数据单独添加
         private void btnAddCADByLayer_Click(object sender, EventArgs e)
         {
-
+            AddCADHelper addCADHelper = new AddCADHelper();
+            addCADHelper.AddCADByShp(mainMapControl);
         }
+        #endregion
+
+        #region CAD数据整体添加
+        private void btnAddWholeCAD_Click(object sender, EventArgs e)
+        {
+            AddCADHelper addCADHelper = new AddCADHelper();
+            addCADHelper.AddWholeCAD(mainMapControl);
+        } 
+        #endregion
     }
 }
