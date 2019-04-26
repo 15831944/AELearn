@@ -19,3 +19,8 @@ D:\Workspace\AELearn\MapOperation\bin\Debug\ESRI.ArcGIS.Server.dll
 D:\Workspace\AELearn\MapOperation\bin\Debug\ESRI.ArcGIS.DataSourcesGDB.xml
 D:\Workspace\AELearn\MapOperation\bin\Debug\ESRI.ArcGIS.Geodatabase.xml
 D:\Workspace\AELearn\MapOperation\bin\Debug\ESRI.ArcGIS.Server.xml
+D:\Workspace\AELearn\MapOperation\obj\Debug\MapOperation.FrmAddTxt.resources
+D:\Workspace\AELearn\MapOperation\bin\Debug\Model.dll
+D:\Workspace\AELearn\MapOperation\bin\Debug\Model.pdb
+D:\Workspace\AELearn\MapOperation\bin\Debug\ESRI.ArcGIS.DataSourcesFile.dll
+D:\Workspace\AELearn\MapOperation\bin\Debug\ESRI.ArcGIS.DataSourcesFile.xml

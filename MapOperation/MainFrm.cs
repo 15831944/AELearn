@@ -25,6 +25,7 @@ namespace MapOperation
         }
         #endregion
 
+        #region 各种为文件加载
         #region 地图文档加载
         #region 控件方法加载地图文档
         private void btnLoadMxFile_Click(object sender, EventArgs e)
@@ -120,6 +121,16 @@ namespace MapOperation
         private void btnAddSDEByDirect_Click(object sender, EventArgs e)
         {
             MessageBox.Show("没做SDE数据库，这个功能就没写");
+        }
+        #endregion
+
+        #endregion
+
+        #region 文本及Excel数据转shp数据加载
+        private void btnAddTxt_Click(object sender, EventArgs e)
+        {
+            FrmAddTxt frmAddTxt = new FrmAddTxt(mainMapControl);
+            frmAddTxt.Show();
         }
         #endregion 
         #endregion

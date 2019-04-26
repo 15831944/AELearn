@@ -88,3 +88,9 @@ D:\Workspace\AELearn\AddFile\obj\Debug\AddFile.dll
 D:\Workspace\AELearn\AddFile\obj\Debug\AddFile.pdb
 D:\Workspace\AELearn\AddFile\bin\Debug\ESRI.ArcGIS.DataSourcesGDB.dll
 D:\Workspace\AELearn\AddFile\bin\Debug\ESRI.ArcGIS.DataSourcesGDB.xml
+D:\Workspace\AELearn\AddFile\bin\Debug\Model.dll
+D:\Workspace\AELearn\AddFile\bin\Debug\Model.pdb
+D:\Workspace\AELearn\AddFile\bin\Debug\ESRI.ArcGIS.DataSourcesFile.dll
+D:\Workspace\AELearn\AddFile\bin\Debug\ESRI.ArcGIS.Geodatabase.dll
+D:\Workspace\AELearn\AddFile\bin\Debug\ESRI.ArcGIS.DataSourcesFile.xml
+D:\Workspace\AELearn\AddFile\bin\Debug\ESRI.ArcGIS.Geodatabase.xml

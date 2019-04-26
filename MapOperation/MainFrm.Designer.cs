@@ -384,6 +384,7 @@
             this.btnAddTxt.Name = "btnAddTxt";
             this.btnAddTxt.Size = new System.Drawing.Size(290, 26);
             this.btnAddTxt.Text = "加载txt文本数据";
+            this.btnAddTxt.Click += new System.EventHandler(this.btnAddTxt_Click);
             // 
             // Save
             // 
