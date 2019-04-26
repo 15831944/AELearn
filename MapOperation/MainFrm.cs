@@ -97,7 +97,31 @@ namespace MapOperation
         {
             AddMdbHelper addMdbHelper = new AddMdbHelper();
             addMdbHelper.AddMdb(mainMapControl);
-        } 
+        }
+        #endregion
+
+        #region 加载文件数据库
+        private void btnAddFileDatabase_Click(object sender, EventArgs e)
+        {
+            AddFolderDbHelper addFolderDbHelper = new AddFolderDbHelper();
+            addFolderDbHelper.AddFileDb(mainMapControl);
+        }
+        #endregion
+
+        #region SDE加载
+        #region SDE数据库方式加载
+        private void btnAddSDEByService_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("没做SDE数据库，这个功能就没写");
+        }
+        #endregion
+
+        #region SDE直连方式加载
+        private void btnAddSDEByDirect_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("没做SDE数据库，这个功能就没写");
+        }
+        #endregion 
         #endregion
     }
 }

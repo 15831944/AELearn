@@ -86,3 +86,5 @@ D:\Workspace\AELearn\AddFile\obj\Debug\AddFile.csproj.CoreCompileInputs.cache
 D:\Workspace\AELearn\AddFile\obj\Debug\AddFile.csproj.CopyComplete
 D:\Workspace\AELearn\AddFile\obj\Debug\AddFile.dll
 D:\Workspace\AELearn\AddFile\obj\Debug\AddFile.pdb
+D:\Workspace\AELearn\AddFile\bin\Debug\ESRI.ArcGIS.DataSourcesGDB.dll
+D:\Workspace\AELearn\AddFile\bin\Debug\ESRI.ArcGIS.DataSourcesGDB.xml

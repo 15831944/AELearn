@@ -13,3 +13,9 @@ D:\Workspace\AELearn\MapOperation\obj\Debug\MapOperation.MainFrm.resources
 D:\Workspace\AELearn\MapOperation\obj\Debug\MapOperation.Properties.Resources.resources
 D:\Workspace\AELearn\MapOperation\obj\Debug\MapOperation.exe
 D:\Workspace\AELearn\MapOperation\obj\Debug\MapOperation.pdb
+D:\Workspace\AELearn\MapOperation\bin\Debug\ESRI.ArcGIS.DataSourcesGDB.dll
+D:\Workspace\AELearn\MapOperation\bin\Debug\ESRI.ArcGIS.Geodatabase.dll
+D:\Workspace\AELearn\MapOperation\bin\Debug\ESRI.ArcGIS.Server.dll
+D:\Workspace\AELearn\MapOperation\bin\Debug\ESRI.ArcGIS.DataSourcesGDB.xml
+D:\Workspace\AELearn\MapOperation\bin\Debug\ESRI.ArcGIS.Geodatabase.xml
+D:\Workspace\AELearn\MapOperation\bin\Debug\ESRI.ArcGIS.Server.xml

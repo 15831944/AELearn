@@ -354,6 +354,7 @@
             this.btnAddFileDatabase.Name = "btnAddFileDatabase";
             this.btnAddFileDatabase.Size = new System.Drawing.Size(290, 26);
             this.btnAddFileDatabase.Text = "加载FileDatabase数据";
+            this.btnAddFileDatabase.Click += new System.EventHandler(this.btnAddFileDatabase_Click);
             // 
             // AddSDE
             // 
@@ -369,12 +370,14 @@
             this.btnAddSDEByService.Name = "btnAddSDEByService";
             this.btnAddSDEByService.Size = new System.Drawing.Size(250, 26);
             this.btnAddSDEByService.Text = "AddSDEBaseOnService";
+            this.btnAddSDEByService.Click += new System.EventHandler(this.btnAddSDEByService_Click);
             // 
             // btnAddSDEByDirect
             // 
             this.btnAddSDEByDirect.Name = "btnAddSDEByDirect";
             this.btnAddSDEByDirect.Size = new System.Drawing.Size(250, 26);
             this.btnAddSDEByDirect.Text = "AddSDEByDirect";
+            this.btnAddSDEByDirect.Click += new System.EventHandler(this.btnAddSDEByDirect_Click);
             // 
             // btnAddTxt
             // 
