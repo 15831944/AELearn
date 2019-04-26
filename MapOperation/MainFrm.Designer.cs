@@ -1,4 +1,4 @@
-﻿namespace Code01
+﻿namespace MapOperation
 {
     partial class MainFrm
     {
@@ -340,6 +340,7 @@
             this.btnAddRasterByCAD.Name = "btnAddRasterByCAD";
             this.btnAddRasterByCAD.Size = new System.Drawing.Size(216, 26);
             this.btnAddRasterByCAD.Text = "AddRasterByCAD";
+            this.btnAddRasterByCAD.Click += new System.EventHandler(this.btnAddRasterByCAD_Click);
             // 
             // btnAddPersonGeodatabase
             // 

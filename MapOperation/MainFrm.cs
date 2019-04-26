@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Code01
+namespace MapOperation
 {
     public partial class MainFrm : Form
     {
@@ -65,6 +65,7 @@ namespace Code01
         }
         #endregion
 
+        #region CAD数据加载
         #region CAD数据单独添加
         private void btnAddCADByLayer_Click(object sender, EventArgs e)
         {
@@ -78,7 +79,16 @@ namespace Code01
         {
             AddCADHelper addCADHelper = new AddCADHelper();
             addCADHelper.AddWholeCAD(mainMapControl);
-        } 
+        }
+        #endregion
+
+        #region CAD作为栅格背景图加载
+        private void btnAddRasterByCAD_Click(object sender, EventArgs e)
+        {
+            AddCADHelper addCADHelper = new AddCADHelper();
+            addCADHelper.AddCADByRaster(mainMapControl);
+        }
+        #endregion 
         #endregion
     }
 }

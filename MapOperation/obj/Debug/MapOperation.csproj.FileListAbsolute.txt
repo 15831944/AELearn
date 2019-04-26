@@ -1,0 +1,15 @@
+D:\Workspace\AELearn\MapOperation\bin\Debug\AddFile.dll
+D:\Workspace\AELearn\MapOperation\bin\Debug\ESRI.ArcGIS.AxControls.dll
+D:\Workspace\AELearn\MapOperation\bin\Debug\ESRI.ArcGIS.Version.dll
+D:\Workspace\AELearn\MapOperation\bin\Debug\AddFile.pdb
+D:\Workspace\AELearn\MapOperation\obj\Debug\MapOperation.csprojAssemblyReference.cache
+D:\Workspace\AELearn\MapOperation\obj\Debug\MapOperation.csproj.GenerateResource.cache
+D:\Workspace\AELearn\MapOperation\obj\Debug\MapOperation.csproj.CoreCompileInputs.cache
+D:\Workspace\AELearn\MapOperation\obj\Debug\MapOperation.csproj.CopyComplete
+D:\Workspace\AELearn\MapOperation\bin\Debug\MapOperation.exe.config
+D:\Workspace\AELearn\MapOperation\bin\Debug\MapOperation.exe
+D:\Workspace\AELearn\MapOperation\bin\Debug\MapOperation.pdb
+D:\Workspace\AELearn\MapOperation\obj\Debug\MapOperation.MainFrm.resources
+D:\Workspace\AELearn\MapOperation\obj\Debug\MapOperation.Properties.Resources.resources
+D:\Workspace\AELearn\MapOperation\obj\Debug\MapOperation.exe
+D:\Workspace\AELearn\MapOperation\obj\Debug\MapOperation.pdb

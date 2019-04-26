@@ -92,6 +92,35 @@ namespace AddFile
                 }
                 mapControl.ActiveView.Refresh();
             }
+        }
+        #endregion
+
+        #region 以栅格背景图的形式添加CAD数据
+        /// <summary>
+        /// 以栅格背景图的形式添加CAD数据
+        /// </summary>
+        /// <param name="mapControl">要添加CAD数据的地图控件</param>
+        public void AddCADByRaster(AxMapControl mapControl)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "CAD(*.dwg)|*.dwg";
+            openFileDialog.Title = "打开CAD数据文件";
+            openFileDialog.ShowDialog();
+
+            string fullPath = openFileDialog.FileName;
+            if (fullPath == "") return;
+            //获取文件名和文件路径
+            int subIndex = fullPath.LastIndexOf("\\");
+            string fileDir = fullPath.Substring(0, subIndex);
+            string fileName = fullPath.Substring(subIndex + 1);
+
+            IWorkspaceFactory CadWorkspaceFactory = new CadWorkspaceFactory();
+            ICadDrawingWorkspace CadWorkspace = (ICadDrawingWorkspace)CadWorkspaceFactory.OpenFromFile(fileDir, 0);
+            ICadDrawingDataset cadDrawingDataset = CadWorkspace.OpenCadDrawingDataset(fileName);
+            ICadLayer cadLayer = new CadLayerClass();
+            cadLayer.CadDrawingDataset = cadDrawingDataset;
+            mapControl.AddLayer(cadLayer);
+            mapControl.ActiveView.Refresh();
         } 
         #endregion
     }
