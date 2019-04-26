@@ -324,21 +324,21 @@
             // btnAddCADByLayer
             // 
             this.btnAddCADByLayer.Name = "btnAddCADByLayer";
-            this.btnAddCADByLayer.Size = new System.Drawing.Size(216, 26);
+            this.btnAddCADByLayer.Size = new System.Drawing.Size(210, 26);
             this.btnAddCADByLayer.Text = "AddCADByLayer";
             this.btnAddCADByLayer.Click += new System.EventHandler(this.btnAddCADByLayer_Click);
             // 
             // btnAddWholeCAD
             // 
             this.btnAddWholeCAD.Name = "btnAddWholeCAD";
-            this.btnAddWholeCAD.Size = new System.Drawing.Size(216, 26);
+            this.btnAddWholeCAD.Size = new System.Drawing.Size(210, 26);
             this.btnAddWholeCAD.Text = "AddWholeCAD";
             this.btnAddWholeCAD.Click += new System.EventHandler(this.btnAddWholeCAD_Click);
             // 
             // btnAddRasterByCAD
             // 
             this.btnAddRasterByCAD.Name = "btnAddRasterByCAD";
-            this.btnAddRasterByCAD.Size = new System.Drawing.Size(216, 26);
+            this.btnAddRasterByCAD.Size = new System.Drawing.Size(210, 26);
             this.btnAddRasterByCAD.Text = "AddRasterByCAD";
             this.btnAddRasterByCAD.Click += new System.EventHandler(this.btnAddRasterByCAD_Click);
             // 
@@ -347,6 +347,7 @@
             this.btnAddPersonGeodatabase.Name = "btnAddPersonGeodatabase";
             this.btnAddPersonGeodatabase.Size = new System.Drawing.Size(290, 26);
             this.btnAddPersonGeodatabase.Text = "加载PersonGeodatabase数据";
+            this.btnAddPersonGeodatabase.Click += new System.EventHandler(this.btnAddPersonGeodatabase_Click);
             // 
             // btnAddFileDatabase
             // 

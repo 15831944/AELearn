@@ -88,7 +88,16 @@ namespace MapOperation
             AddCADHelper addCADHelper = new AddCADHelper();
             addCADHelper.AddCADByRaster(mainMapControl);
         }
-        #endregion 
+        #endregion
+
+        #endregion
+
+        #region mdb加载
+        private void btnAddPersonGeodatabase_Click(object sender, EventArgs e)
+        {
+            AddMdbHelper addMdbHelper = new AddMdbHelper();
+            addMdbHelper.AddMdb(mainMapControl);
+        } 
         #endregion
     }
 }
