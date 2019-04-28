@@ -141,6 +141,14 @@
       <Project>{e2258662-0440-40b2-b4bb-05c57979c625}</Project>
       <Name>AddFile</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MapViewControl\MapViewControl.csproj">
+      <Project>{c6248bc7-dcf4-4942-ae13-c51388004854}</Project>
+      <Name>MapViewControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{63CE10B0-D1F8-4619-B428-F182831BD473}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SaveMxd\SaveMxd.csproj">
       <Project>{bd7d70d4-4ebc-402d-b439-8faa3655ea1d}</Project>
       <Name>SaveMxd</Name>

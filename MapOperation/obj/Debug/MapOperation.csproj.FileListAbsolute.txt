@@ -26,3 +26,7 @@ D:\Workspace\AELearn\MapOperation\bin\Debug\ESRI.ArcGIS.DataSourcesFile.dll
 D:\Workspace\AELearn\MapOperation\bin\Debug\ESRI.ArcGIS.DataSourcesFile.xml
 D:\Workspace\AELearn\MapOperation\bin\Debug\SaveMxd.dll
 D:\Workspace\AELearn\MapOperation\bin\Debug\SaveMxd.pdb
+D:\Workspace\AELearn\MapOperation\bin\Debug\MapViewControl.dll
+D:\Workspace\AELearn\MapOperation\bin\Debug\MapViewControl.pdb
+D:\Workspace\AELearn\MapOperation\bin\Debug\CommonTools.dll
+D:\Workspace\AELearn\MapOperation\bin\Debug\CommonTools.pdb

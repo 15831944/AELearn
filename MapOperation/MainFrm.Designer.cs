@@ -125,6 +125,9 @@
             this.mainMapControl.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("mainMapControl.OcxState")));
             this.mainMapControl.Size = new System.Drawing.Size(650, 507);
             this.mainMapControl.TabIndex = 0;
+            this.mainMapControl.OnMouseDown += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseDownEventHandler(this.mainMapControl_OnMouseDown);
+            this.mainMapControl.OnMouseUp += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseUpEventHandler(this.mainMapControl_OnMouseUp);
+            this.mainMapControl.OnMouseMove += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseMoveEventHandler(this.mainMapControl_OnMouseMove);
             // 
             // axTOCControl1
             // 
@@ -398,14 +401,14 @@
             // btnSaveMap
             // 
             this.btnSaveMap.Name = "btnSaveMap";
-            this.btnSaveMap.Size = new System.Drawing.Size(216, 26);
+            this.btnSaveMap.Size = new System.Drawing.Size(159, 26);
             this.btnSaveMap.Text = "保存地图";
             this.btnSaveMap.Click += new System.EventHandler(this.btnSaveMap_Click);
             // 
             // btnSaveAsMap
             // 
             this.btnSaveAsMap.Name = "btnSaveAsMap";
-            this.btnSaveAsMap.Size = new System.Drawing.Size(216, 26);
+            this.btnSaveAsMap.Size = new System.Drawing.Size(159, 26);
             this.btnSaveAsMap.Text = "地图另存为";
             this.btnSaveAsMap.Click += new System.EventHandler(this.btnSaveAsMap_Click);
             // 
@@ -428,55 +431,63 @@
             // btnZoomIn
             // 
             this.btnZoomIn.Name = "btnZoomIn";
-            this.btnZoomIn.Size = new System.Drawing.Size(144, 26);
+            this.btnZoomIn.Size = new System.Drawing.Size(216, 26);
             this.btnZoomIn.Text = "拉框放大";
+            this.btnZoomIn.Click += new System.EventHandler(this.btnZoomIn_Click);
             // 
             // btnZoomOut
             // 
             this.btnZoomOut.Name = "btnZoomOut";
-            this.btnZoomOut.Size = new System.Drawing.Size(144, 26);
+            this.btnZoomOut.Size = new System.Drawing.Size(216, 26);
             this.btnZoomOut.Text = "拉框缩小";
+            this.btnZoomOut.Click += new System.EventHandler(this.btnZoomOut_Click);
             // 
             // btnZoomInStep
             // 
             this.btnZoomInStep.Name = "btnZoomInStep";
-            this.btnZoomInStep.Size = new System.Drawing.Size(144, 26);
+            this.btnZoomInStep.Size = new System.Drawing.Size(216, 26);
             this.btnZoomInStep.Text = "逐级放大";
+            this.btnZoomInStep.Click += new System.EventHandler(this.btnZoomInStep_Click);
             // 
             // btnZoomOutStep
             // 
             this.btnZoomOutStep.Name = "btnZoomOutStep";
-            this.btnZoomOutStep.Size = new System.Drawing.Size(144, 26);
+            this.btnZoomOutStep.Size = new System.Drawing.Size(216, 26);
             this.btnZoomOutStep.Text = "逐级缩小";
+            this.btnZoomOutStep.Click += new System.EventHandler(this.btnZoomOutStep_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(141, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(213, 6);
             // 
             // btnPan
             // 
             this.btnPan.Name = "btnPan";
-            this.btnPan.Size = new System.Drawing.Size(144, 26);
+            this.btnPan.Size = new System.Drawing.Size(216, 26);
             this.btnPan.Text = "漫游";
+            this.btnPan.Click += new System.EventHandler(this.btnPan_Click);
             // 
             // btnFrontView
             // 
             this.btnFrontView.Name = "btnFrontView";
-            this.btnFrontView.Size = new System.Drawing.Size(144, 26);
+            this.btnFrontView.Size = new System.Drawing.Size(216, 26);
             this.btnFrontView.Text = "前一视图";
+            this.btnFrontView.Click += new System.EventHandler(this.btnFrontView_Click);
             // 
             // btnForWardView
             // 
             this.btnForWardView.Name = "btnForWardView";
-            this.btnForWardView.Size = new System.Drawing.Size(144, 26);
+            this.btnForWardView.Size = new System.Drawing.Size(216, 26);
             this.btnForWardView.Text = "后一视图";
+            this.btnForWardView.Click += new System.EventHandler(this.btnForWardView_Click);
             // 
             // btnFullView
             // 
             this.btnFullView.Name = "btnFullView";
-            this.btnFullView.Size = new System.Drawing.Size(144, 26);
+            this.btnFullView.Size = new System.Drawing.Size(216, 26);
             this.btnFullView.Text = "全图显示";
+            this.btnFullView.Click += new System.EventHandler(this.btnFullView_Click);
             // 
             // MapExport
             // 
@@ -490,13 +501,13 @@
             // btnExportRegion
             // 
             this.btnExportRegion.Name = "btnExportRegion";
-            this.btnExportRegion.Size = new System.Drawing.Size(144, 26);
+            this.btnExportRegion.Size = new System.Drawing.Size(216, 26);
             this.btnExportRegion.Text = "区域导出";
             // 
             // btnExportMap
             // 
             this.btnExportMap.Name = "btnExportMap";
-            this.btnExportMap.Size = new System.Drawing.Size(144, 26);
+            this.btnExportMap.Size = new System.Drawing.Size(216, 26);
             this.btnExportMap.Text = "全域导出";
             // 
             // BookMark
@@ -511,13 +522,13 @@
             // btnAddBookMark
             // 
             this.btnAddBookMark.Name = "btnAddBookMark";
-            this.btnAddBookMark.Size = new System.Drawing.Size(144, 26);
+            this.btnAddBookMark.Size = new System.Drawing.Size(216, 26);
             this.btnAddBookMark.Text = "添加书签";
             // 
             // btnMangeBookMark
             // 
             this.btnMangeBookMark.Name = "btnMangeBookMark";
-            this.btnMangeBookMark.Size = new System.Drawing.Size(144, 26);
+            this.btnMangeBookMark.Size = new System.Drawing.Size(216, 26);
             this.btnMangeBookMark.Text = "管理书签";
             // 
             // MapMeasure
@@ -532,13 +543,13 @@
             // btnMeasureLength
             // 
             this.btnMeasureLength.Name = "btnMeasureLength";
-            this.btnMeasureLength.Size = new System.Drawing.Size(144, 26);
+            this.btnMeasureLength.Size = new System.Drawing.Size(216, 26);
             this.btnMeasureLength.Text = "距离量测";
             // 
             // btnMeasureArea
             // 
             this.btnMeasureArea.Name = "btnMeasureArea";
-            this.btnMeasureArea.Size = new System.Drawing.Size(144, 26);
+            this.btnMeasureArea.Size = new System.Drawing.Size(216, 26);
             this.btnMeasureArea.Text = "面积量测";
             // 
             // MapSel
@@ -554,19 +565,19 @@
             // btnSelFeature
             // 
             this.btnSelFeature.Name = "btnSelFeature";
-            this.btnSelFeature.Size = new System.Drawing.Size(159, 26);
+            this.btnSelFeature.Size = new System.Drawing.Size(216, 26);
             this.btnSelFeature.Text = "要素选择";
             // 
             // btnZoomToSel
             // 
             this.btnZoomToSel.Name = "btnZoomToSel";
-            this.btnZoomToSel.Size = new System.Drawing.Size(159, 26);
+            this.btnZoomToSel.Size = new System.Drawing.Size(216, 26);
             this.btnZoomToSel.Text = "缩放至选择";
             // 
             // btnClearSel
             // 
             this.btnClearSel.Name = "btnClearSel";
-            this.btnClearSel.Size = new System.Drawing.Size(159, 26);
+            this.btnClearSel.Size = new System.Drawing.Size(216, 26);
             this.btnClearSel.Text = "清除选择";
             // 
             // toolStripMenuItem1

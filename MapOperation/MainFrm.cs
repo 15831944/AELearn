@@ -1,4 +1,6 @@
 ﻿using AddFile;
+using MapViewControl;
+using Model;
 using SaveMxd;
 using System;
 using System.Collections.Generic;
@@ -16,6 +18,9 @@ namespace MapOperation
     {
         #region 全局变量
         AddMxdHelper addMxdHelper;
+        ViewControlHelper viewControlHelper;
+
+        IToolRunControl toolRunControl;
         #endregion
 
         #region 初始化
@@ -23,6 +28,8 @@ namespace MapOperation
         {
             InitializeComponent();
             addMxdHelper = new AddMxdHelper();
+            viewControlHelper = new ViewControlHelper();
+            toolRunControl = null;
         }
         #endregion
 
@@ -151,7 +158,98 @@ namespace MapOperation
         {
             SaveMxdHelper saveMxdHelper = new SaveMxdHelper();
             saveMxdHelper.SaveAsMap(mainMapControl);
-        }  
+        }
+        #endregion
+
+        #endregion
+
+        #region 地图浏览
+        #region 选框放大
+        private void btnZoomIn_Click(object sender, EventArgs e)
+        {
+            toolRunControl = viewControlHelper.ViewZoomIn(mainMapControl);
+        }
+        #endregion
+
+        #region 选框缩小
+        private void btnZoomOut_Click(object sender, EventArgs e)
+        {
+            toolRunControl = viewControlHelper.ViewZoomOut(mainMapControl);
+        }
+        #endregion
+
+        #region 固定比例放大
+        private void btnZoomInStep_Click(object sender, EventArgs e)
+        {
+            viewControlHelper.ViewZoomInStep(mainMapControl);
+        }
+        #endregion
+
+        #region 固定比例缩小
+        private void btnZoomOutStep_Click(object sender, EventArgs e)
+        {
+            viewControlHelper.ViewZoomOutStep(mainMapControl);
+        }
+        #endregion
+
+        #region 地图漫游
+        private void btnPan_Click(object sender, EventArgs e)
+        {
+            toolRunControl = viewControlHelper.ViewPan(mainMapControl);
+        }
+        #endregion
+
+        #region 前一视图
+        private void btnFrontView_Click(object sender, EventArgs e)
+        {
+            viewControlHelper.FrontView(mainMapControl, btnForWardView, btnFrontView);
+        }
+        #endregion
+
+        #region 后一视图
+        private void btnForWardView_Click(object sender, EventArgs e)
+        {
+            viewControlHelper.ForwardView(mainMapControl, btnFrontView, btnForWardView);
+        }
+        #endregion
+
+        #region 地图全图
+        private void btnFullView_Click(object sender, EventArgs e)
+        {
+            mainMapControl.Extent = mainMapControl.FullExtent;
+        }
+        #endregion
+        #endregion
+
+        #region 地图控件操作事件
+        #region 鼠标按下事件
+        private void mainMapControl_OnMouseDown(object sender, ESRI.ArcGIS.Controls.IMapControlEvents2_OnMouseDownEvent e)
+        {
+            if (toolRunControl != null)
+            {
+                toolRunControl.OnMouseDownRun();
+            }
+        }
+        #endregion
+
+        #region 鼠标移动事件
+        private void mainMapControl_OnMouseMove(object sender, ESRI.ArcGIS.Controls.IMapControlEvents2_OnMouseMoveEvent e)
+        {
+            if (toolRunControl != null)
+            {
+                toolRunControl.OnMouseMoveRun();
+            }
+        }
+        #endregion
+
+        #region 鼠标抬起事件
+        private void mainMapControl_OnMouseUp(object sender, ESRI.ArcGIS.Controls.IMapControlEvents2_OnMouseUpEvent e)
+        {
+            if (toolRunControl != null)
+            {
+                toolRunControl.OnMouseUpRun();
+            }
+        }
         #endregion
         #endregion
     }
