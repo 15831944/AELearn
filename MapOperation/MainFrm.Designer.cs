@@ -398,14 +398,16 @@
             // btnSaveMap
             // 
             this.btnSaveMap.Name = "btnSaveMap";
-            this.btnSaveMap.Size = new System.Drawing.Size(159, 26);
+            this.btnSaveMap.Size = new System.Drawing.Size(216, 26);
             this.btnSaveMap.Text = "保存地图";
+            this.btnSaveMap.Click += new System.EventHandler(this.btnSaveMap_Click);
             // 
             // btnSaveAsMap
             // 
             this.btnSaveAsMap.Name = "btnSaveAsMap";
-            this.btnSaveAsMap.Size = new System.Drawing.Size(159, 26);
+            this.btnSaveAsMap.Size = new System.Drawing.Size(216, 26);
             this.btnSaveAsMap.Text = "地图另存为";
+            this.btnSaveAsMap.Click += new System.EventHandler(this.btnSaveAsMap_Click);
             // 
             // MapView
             // 

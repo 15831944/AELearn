@@ -1,4 +1,5 @@
 ﻿using AddFile;
+using SaveMxd;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -132,7 +133,26 @@ namespace MapOperation
             FrmAddTxt frmAddTxt = new FrmAddTxt(mainMapControl);
             frmAddTxt.Show();
         }
-        #endregion 
+        #endregion
+
+        #endregion
+
+        #region 保存地图文档
+        #region 直接保存
+        private void btnSaveMap_Click(object sender, EventArgs e)
+        {
+            SaveMxdHelper saveMxdHelper = new SaveMxdHelper();
+            saveMxdHelper.SaveMap(mainMapControl);
+        }
+        #endregion
+
+        #region 另存为
+        private void btnSaveAsMap_Click(object sender, EventArgs e)
+        {
+            SaveMxdHelper saveMxdHelper = new SaveMxdHelper();
+            saveMxdHelper.SaveAsMap(mainMapControl);
+        }  
+        #endregion
         #endregion
     }
 }

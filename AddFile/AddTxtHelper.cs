@@ -82,6 +82,16 @@ namespace AddFile
                 fieldEdit.GeometryDef_2 = geometryDef;
                 //赋值-字段集和
                 fieldsEdit.AddField(field);
+
+                //再来一遍
+                field = new FieldClass();
+                fieldEdit = (IFieldEdit)field;
+
+                fieldEdit.Name_2 = "Test";
+                fieldEdit.Type_2 = esriFieldType.esriFieldTypeString;
+
+                fieldsEdit.AddField(field);
+
                 //创建图层
                 IWorkspaceFactory workspaceFactory = new ShapefileWorkspaceFactoryClass();
                 IFeatureWorkspace workspace = (IFeatureWorkspace)workspaceFactory.OpenFromFile(filePath, 0);
