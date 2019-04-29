@@ -30,3 +30,15 @@ D:\Workspace\AELearn\MapOperation\bin\Debug\MapViewControl.dll
 D:\Workspace\AELearn\MapOperation\bin\Debug\MapViewControl.pdb
 D:\Workspace\AELearn\MapOperation\bin\Debug\CommonTools.dll
 D:\Workspace\AELearn\MapOperation\bin\Debug\CommonTools.pdb
+D:\Workspace\AELearn\MapOperation\obj\Debug\MapOperation.FrmBookMarkAdd.resources
+D:\Workspace\AELearn\MapOperation\bin\Debug\ESRI.ArcGIS.Carto.dll
+D:\Workspace\AELearn\MapOperation\bin\Debug\ESRI.ArcGIS.GeoDatabaseExtensions.dll
+D:\Workspace\AELearn\MapOperation\bin\Debug\ESRI.ArcGIS.DataSourcesRaster.dll
+D:\Workspace\AELearn\MapOperation\bin\Debug\ESRI.ArcGIS.GISClient.dll
+D:\Workspace\AELearn\MapOperation\bin\Debug\ESRI.ArcGIS.GeoDatabaseDistributed.dll
+D:\Workspace\AELearn\MapOperation\bin\Debug\ESRI.ArcGIS.Carto.xml
+D:\Workspace\AELearn\MapOperation\bin\Debug\ESRI.ArcGIS.GeoDatabaseExtensions.xml
+D:\Workspace\AELearn\MapOperation\bin\Debug\ESRI.ArcGIS.DataSourcesRaster.xml
+D:\Workspace\AELearn\MapOperation\bin\Debug\ESRI.ArcGIS.GISClient.xml
+D:\Workspace\AELearn\MapOperation\bin\Debug\ESRI.ArcGIS.GeoDatabaseDistributed.xml
+D:\Workspace\AELearn\MapOperation\obj\Debug\MapOperation.FrmManagerBookmark.resources

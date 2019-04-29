@@ -53,7 +53,7 @@
     </Reference>
     <Reference Include="ESRI.ArcGIS.AxControls, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL" />
     <Reference Include="ESRI.ArcGIS.Carto, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86">
-      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="ESRI.ArcGIS.Controls, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86">
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -99,6 +99,18 @@
     <Compile Include="FrmAddTxt.Designer.cs">
       <DependentUpon>FrmAddTxt.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmBookMarkAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBookMarkAdd.Designer.cs">
+      <DependentUpon>FrmBookMarkAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmManagerBookmark.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmManagerBookmark.Designer.cs">
+      <DependentUpon>FrmManagerBookmark.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +121,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmAddTxt.resx">
       <DependentUpon>FrmAddTxt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBookMarkAdd.resx">
+      <DependentUpon>FrmBookMarkAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmManagerBookmark.resx">
+      <DependentUpon>FrmManagerBookmark.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainFrm.resx">
       <DependentUpon>MainFrm.cs</DependentUpon>

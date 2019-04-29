@@ -1,4 +1,5 @@
 ﻿using AddFile;
+using ESRI.ArcGIS.Carto;
 using MapViewControl;
 using Model;
 using SaveMxd;
@@ -251,6 +252,61 @@ namespace MapOperation
             }
         }
         #endregion
+
+        #endregion
+
+        #region 书签模块
+        #region 创建书签
+        private void btnAddBookMark_Click(object sender, EventArgs e)
+        {
+            FrmBookMarkAdd frmBookMarkAdd = new FrmBookMarkAdd();
+            frmBookMarkAdd.ShowDialog();
+            if (frmBookMarkAdd.IsSave == false) return; //判断是否保存书签
+            // 空白字符串判断
+            if (string.IsNullOrWhiteSpace(frmBookMarkAdd.BookMarkName))
+            {
+                MessageBox.Show("书签名为空，请重新添加", "提示");
+                return;
+            }
+            // 1.得到地图的书签集
+            IMapBookmarks bookmarks = mainMapControl.Map as IMapBookmarks;
+            // 判断书签是否存在
+            IEnumSpatialBookmark enumSpatialBookmark = bookmarks.Bookmarks;
+            enumSpatialBookmark.Reset();
+            ISpatialBookmark spatialBookmark;
+            while ((spatialBookmark = enumSpatialBookmark.Next()) != null)
+            {
+                // 如果有重名书签选择是否替换
+                if (spatialBookmark.Name == frmBookMarkAdd.BookMarkName)
+                {
+                    DialogResult result = MessageBox.Show("该书签名已存在，请问是否替换原书签？", "提示", MessageBoxButtons.YesNoCancel);
+                    if (result == DialogResult.OK)
+                    {
+                        //移除原书签
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+            }
+            // 2.创建书签，并给范围，名字等属性赋值
+            IAOIBookmark bookmark = new AOIBookmarkClass();
+            bookmark.Name = frmBookMarkAdd.BookMarkName; // 名字
+            IActiveView activeView = mainMapControl.ActiveView;
+            bookmark.Location = activeView.Extent; // 位置
+            // 3.向书签集里添加书签
+            bookmarks.AddBookmark(bookmark);
+        }
+        #endregion
+
+        #region 管理书签
+        private void btnMangeBookMark_Click(object sender, EventArgs e)
+        {
+            FrmManagerBookmark frm = new FrmManagerBookmark(mainMapControl.Map);
+            frm.ShowDialog();
+        }
+        #endregion 
         #endregion
     }
 }
