@@ -1,5 +1,9 @@
 ﻿using AddFile;
+using CommonTools;
 using ESRI.ArcGIS.Carto;
+using ESRI.ArcGIS.Controls;
+using ESRI.ArcGIS.Display;
+using ESRI.ArcGIS.Geometry;
 using MapViewControl;
 using Model;
 using SaveMxd;
@@ -12,6 +16,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static MapOperation.FrmMeasureResult;
 
 namespace MapOperation
 {
@@ -20,8 +25,11 @@ namespace MapOperation
         #region 全局变量
         AddMxdHelper addMxdHelper;
         ViewControlHelper viewControlHelper;
-
         IToolRunControl toolRunControl;
+
+        MapUnitHelper mapUnitHelper;
+
+        FrmMeasureResult frmMeasureResult = null;   //数据测量窗口
         #endregion
 
         #region 初始化
@@ -222,39 +230,6 @@ namespace MapOperation
         #endregion
         #endregion
 
-        #region 地图控件操作事件
-        #region 鼠标按下事件
-        private void mainMapControl_OnMouseDown(object sender, ESRI.ArcGIS.Controls.IMapControlEvents2_OnMouseDownEvent e)
-        {
-            if (toolRunControl != null)
-            {
-                toolRunControl.OnMouseDownRun();
-            }
-        }
-        #endregion
-
-        #region 鼠标移动事件
-        private void mainMapControl_OnMouseMove(object sender, ESRI.ArcGIS.Controls.IMapControlEvents2_OnMouseMoveEvent e)
-        {
-            if (toolRunControl != null)
-            {
-                toolRunControl.OnMouseMoveRun();
-            }
-        }
-        #endregion
-
-        #region 鼠标抬起事件
-        private void mainMapControl_OnMouseUp(object sender, ESRI.ArcGIS.Controls.IMapControlEvents2_OnMouseUpEvent e)
-        {
-            if (toolRunControl != null)
-            {
-                toolRunControl.OnMouseUpRun();
-            }
-        }
-        #endregion
-
-        #endregion
-
         #region 书签模块
         #region 创建书签
         private void btnAddBookMark_Click(object sender, EventArgs e)
@@ -306,7 +281,105 @@ namespace MapOperation
             FrmManagerBookmark frm = new FrmManagerBookmark(mainMapControl.Map);
             frm.ShowDialog();
         }
-        #endregion 
         #endregion
+
+        #endregion
+
+        #region 测量模块
+        #region 长度测量
+        private void btnMeasureLength_Click(object sender, EventArgs e)
+        {
+            //鼠标指针样式
+            mainMapControl.MousePointer = esriControlsMousePointer.esriPointerCrosshair;
+            //测量窗口单例
+            if (frmMeasureResult == null || frmMeasureResult.IsDisposed)
+            {
+                frmMeasureResult = new FrmMeasureResult();
+                frmMeasureResult.frmClose += new FrmCloseEventHandle(ResetMessureData);
+                frmMeasureResult.lblMeasureResult.Text = "";
+                frmMeasureResult.Text = "长度测量";
+                frmMeasureResult.Show();
+            }
+            else
+            {
+                frmMeasureResult.Activate();
+            }
+        }
+        #endregion
+
+        #region 面积测量
+        private void btnMeasureArea_Click(object sender, EventArgs e)
+        {
+            //鼠标指针样式
+            mainMapControl.MousePointer = esriControlsMousePointer.esriPointerCrosshair;
+            //测量窗口单例
+            if (frmMeasureResult == null || frmMeasureResult.IsDisposed)
+            {
+                frmMeasureResult = new FrmMeasureResult();
+                frmMeasureResult.frmClose += new FrmCloseEventHandle(ResetMessureData);
+                frmMeasureResult.lblMeasureResult.Text = "";
+                frmMeasureResult.Text = "面积测量";
+                frmMeasureResult.Show();
+            }
+            else
+            {
+                frmMeasureResult.Activate();
+            }
+        }
+        #endregion
+
+        #region 关闭测量窗口时重置
+        private void ResetMessureData()
+        {
+            if (newLineFeedback != null)
+            {
+                newLineFeedback.Stop();
+                newLineFeedback = null;
+            }
+            if (newPolygonFeedback != null)
+            {
+                newPolygonFeedback.Stop();
+                newPolygonFeedback = null;
+                areaPointColl.RemovePoints(0, areaPointColl.PointCount);
+            }
+
+            mainMapControl.MousePointer = ESRI.ArcGIS.Controls.esriControlsMousePointer.esriPointerDefault;
+        }
+        #endregion
+        #endregion
+
+        #region 地图控件操作事件
+        #region 鼠标按下事件
+        private void mainMapControl_OnMouseDown(object sender, ESRI.ArcGIS.Controls.IMapControlEvents2_OnMouseDownEvent e)
+        {
+            if (toolRunControl != null)
+            {
+                toolRunControl.OnMouseDownRun();
+            }
+        }
+        #endregion
+
+        #region 鼠标移动事件
+        private void mainMapControl_OnMouseMove(object sender, ESRI.ArcGIS.Controls.IMapControlEvents2_OnMouseMoveEvent e)
+        {
+            if (toolRunControl != null)
+            {
+                toolRunControl.OnMouseMoveRun();
+            }
+        }
+        #endregion
+
+        #region 鼠标抬起事件
+        private void mainMapControl_OnMouseUp(object sender, ESRI.ArcGIS.Controls.IMapControlEvents2_OnMouseUpEvent e)
+        {
+            if (toolRunControl != null)
+            {
+                toolRunControl.OnMouseUpRun();
+            }
+        }
+        #endregion
+
+        #endregion
+
     }
 }

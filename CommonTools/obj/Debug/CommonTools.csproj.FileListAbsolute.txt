@@ -10,7 +10,6 @@ D:\Workspace\AELearn\CommonTools\obj\Debug\CommonTools.pdb
 D:\Workspace\AELearn\CommonTools\bin\Debug\ESRI.ArcGIS.AxControls.dll
 D:\Workspace\AELearn\CommonTools\bin\Debug\ESRI.ArcGIS.Controls.dll
 D:\Workspace\AELearn\CommonTools\bin\Debug\ESRI.ArcGIS.SystemUI.dll
-D:\Workspace\AELearn\CommonTools\bin\Debug\ESRI.ArcGIS.System.dll
 D:\Workspace\AELearn\CommonTools\bin\Debug\ESRI.ArcGIS.Output.dll
 D:\Workspace\AELearn\CommonTools\bin\Debug\ESRI.ArcGIS.3DAnalyst.dll
 D:\Workspace\AELearn\CommonTools\bin\Debug\ESRI.ArcGIS.GlobeCore.dll
@@ -30,7 +29,6 @@ D:\Workspace\AELearn\CommonTools\bin\Debug\ESRI.ArcGIS.DataSourcesNetCDF.dll
 D:\Workspace\AELearn\CommonTools\bin\Debug\ESRI.ArcGIS.GeoAnalyst.dll
 D:\Workspace\AELearn\CommonTools\bin\Debug\ESRI.ArcGIS.Controls.xml
 D:\Workspace\AELearn\CommonTools\bin\Debug\ESRI.ArcGIS.SystemUI.xml
-D:\Workspace\AELearn\CommonTools\bin\Debug\ESRI.ArcGIS.System.xml
 D:\Workspace\AELearn\CommonTools\bin\Debug\ESRI.ArcGIS.Output.xml
 D:\Workspace\AELearn\CommonTools\bin\Debug\ESRI.ArcGIS.3DAnalyst.xml
 D:\Workspace\AELearn\CommonTools\bin\Debug\ESRI.ArcGIS.GlobeCore.xml

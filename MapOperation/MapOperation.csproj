@@ -59,10 +59,10 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="ESRI.ArcGIS.Display, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86">
-      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="ESRI.ArcGIS.Geometry, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86">
-      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="ESRI.ArcGIS.GlobeCore, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86">
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -111,6 +111,12 @@
     <Compile Include="FrmManagerBookmark.Designer.cs">
       <DependentUpon>FrmManagerBookmark.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmMeasureResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMeasureResult.Designer.cs">
+      <DependentUpon>FrmMeasureResult.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmManagerBookmark.resx">
       <DependentUpon>FrmManagerBookmark.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMeasureResult.resx">
+      <DependentUpon>FrmMeasureResult.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainFrm.resx">
       <DependentUpon>MainFrm.cs</DependentUpon>
@@ -158,6 +167,10 @@
     <ProjectReference Include="..\AddFile\AddFile.csproj">
       <Project>{e2258662-0440-40b2-b4bb-05c57979c625}</Project>
       <Name>AddFile</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonTools\CommonTools.csproj">
+      <Project>{98DDFBFB-ED07-4596-8DBA-BD8959B1FAC0}</Project>
+      <Name>CommonTools</Name>
     </ProjectReference>
     <ProjectReference Include="..\MapViewControl\MapViewControl.csproj">
       <Project>{c6248bc7-dcf4-4942-ae13-c51388004854}</Project>

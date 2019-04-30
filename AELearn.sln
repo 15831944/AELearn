@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapViewControl", "MapViewCo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonTools", "CommonTools\CommonTools.csproj", "{98DDFBFB-ED07-4596-8DBA-BD8959B1FAC0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meassure", "Meassure\Meassure.csproj", "{4688C051-5ECE-4AAE-9F4E-5D8B3E5AEFEC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{98DDFBFB-ED07-4596-8DBA-BD8959B1FAC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98DDFBFB-ED07-4596-8DBA-BD8959B1FAC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98DDFBFB-ED07-4596-8DBA-BD8959B1FAC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4688C051-5ECE-4AAE-9F4E-5D8B3E5AEFEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4688C051-5ECE-4AAE-9F4E-5D8B3E5AEFEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4688C051-5ECE-4AAE-9F4E-5D8B3E5AEFEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4688C051-5ECE-4AAE-9F4E-5D8B3E5AEFEC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
