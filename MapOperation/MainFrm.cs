@@ -289,59 +289,37 @@ namespace MapOperation
         #region 长度测量
         private void btnMeasureLength_Click(object sender, EventArgs e)
         {
-            //鼠标指针样式
-            mainMapControl.MousePointer = esriControlsMousePointer.esriPointerCrosshair;
-            //测量窗口单例
-            if (frmMeasureResult == null || frmMeasureResult.IsDisposed)
-            {
-                frmMeasureResult = new FrmMeasureResult();
-                frmMeasureResult.frmClose += new FrmCloseEventHandle(ResetMessureData);
-                frmMeasureResult.lblMeasureResult.Text = "";
-                frmMeasureResult.Text = "长度测量";
-                frmMeasureResult.Show();
-            }
-            else
-            {
-                frmMeasureResult.Activate();
-            }
+            MeasureFrmMaker measureFrmMaker = new MeasureFrmMaker(mainMapControl);
+            measureFrmMaker.GetMeasureFrm(EnumMeasureOperation.lengthMeasure, ref frmMeasureResult);
+            frmMeasureResult.frmClose += new FrmCloseEventHandle(ResetMessureData);
+            frmMeasureResult.Show();
         }
         #endregion
 
         #region 面积测量
         private void btnMeasureArea_Click(object sender, EventArgs e)
         {
-            //鼠标指针样式
-            mainMapControl.MousePointer = esriControlsMousePointer.esriPointerCrosshair;
-            //测量窗口单例
-            if (frmMeasureResult == null || frmMeasureResult.IsDisposed)
-            {
-                frmMeasureResult = new FrmMeasureResult();
-                frmMeasureResult.frmClose += new FrmCloseEventHandle(ResetMessureData);
-                frmMeasureResult.lblMeasureResult.Text = "";
-                frmMeasureResult.Text = "面积测量";
-                frmMeasureResult.Show();
-            }
-            else
-            {
-                frmMeasureResult.Activate();
-            }
+            MeasureFrmMaker measureFrmMaker = new MeasureFrmMaker(mainMapControl);
+            measureFrmMaker.GetMeasureFrm(EnumMeasureOperation.areaMeasure, ref frmMeasureResult);
+            frmMeasureResult.frmClose += new FrmCloseEventHandle(ResetMessureData);
+            frmMeasureResult.Show();
         }
         #endregion
 
         #region 关闭测量窗口时重置
         private void ResetMessureData()
         {
-            if (newLineFeedback != null)
-            {
-                newLineFeedback.Stop();
-                newLineFeedback = null;
-            }
-            if (newPolygonFeedback != null)
-            {
-                newPolygonFeedback.Stop();
-                newPolygonFeedback = null;
-                areaPointColl.RemovePoints(0, areaPointColl.PointCount);
-            }
+            //if (newLineFeedback != null)
+            //{
+            //    newLineFeedback.Stop();
+            //    newLineFeedback = null;
+            //}
+            //if (newPolygonFeedback != null)
+            //{
+            //    newPolygonFeedback.Stop();
+            //    newPolygonFeedback = null;
+            //    areaPointColl.RemovePoints(0, areaPointColl.PointCount);
+            //}
 
             mainMapControl.MousePointer = ESRI.ArcGIS.Controls.esriControlsMousePointer.esriPointerDefault;
         }
