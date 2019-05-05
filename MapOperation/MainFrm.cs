@@ -26,10 +26,18 @@ namespace MapOperation
         AddMxdHelper addMxdHelper;
         ViewControlHelper viewControlHelper;
         IToolRunControl toolRunControl;
+        IToolGetResult toolGetResult;
 
         MapUnitHelper mapUnitHelper;
 
         FrmMeasureResult frmMeasureResult = null;   //数据测量窗口
+        //绘图工具
+        INewLineFeedback newLineFeedback;
+        INewPolygonFeedback newPolygonFeedback;
+        //绘图缓存点
+        private IPoint clickPT = null;
+        private IPoint movePT = null;
+        private IPointCollection areaPointColl = new MultipointClass();
         #endregion
 
         #region 初始化
@@ -38,7 +46,9 @@ namespace MapOperation
             InitializeComponent();
             addMxdHelper = new AddMxdHelper();
             viewControlHelper = new ViewControlHelper();
+            mapUnitHelper = new MapUnitHelper(mainMapControl.Map.MapUnits);
             toolRunControl = null;
+            toolGetResult = null;
         }
         #endregion
 
@@ -289,50 +299,68 @@ namespace MapOperation
         #region 长度测量
         private void btnMeasureLength_Click(object sender, EventArgs e)
         {
+            // 测量窗口对象
             MeasureFrmMaker measureFrmMaker = new MeasureFrmMaker(mainMapControl);
             measureFrmMaker.GetMeasureFrm(EnumMeasureOperation.lengthMeasure, ref frmMeasureResult);
-            frmMeasureResult.frmClose += new FrmCloseEventHandle(ResetMessureData);
+            frmMeasureResult.frmClose += new FrmCloseEventHandle(ResetMeasureData);
             frmMeasureResult.Show();
+            // 线反馈工具
+            toolRunControl = new DrawLineFeedbackTool(newLineFeedback,mainMapControl);
+            toolGetResult = toolRunControl as IToolGetResult;
         }
         #endregion
 
         #region 面积测量
         private void btnMeasureArea_Click(object sender, EventArgs e)
         {
+            // 测量窗口对象
             MeasureFrmMaker measureFrmMaker = new MeasureFrmMaker(mainMapControl);
             measureFrmMaker.GetMeasureFrm(EnumMeasureOperation.areaMeasure, ref frmMeasureResult);
-            frmMeasureResult.frmClose += new FrmCloseEventHandle(ResetMessureData);
+            frmMeasureResult.frmClose += new FrmCloseEventHandle(ResetMeasureData);
             frmMeasureResult.Show();
+            // 面反馈工具
+            toolRunControl = new DrawPolygonFeedbackTool(newPolygonFeedback, mainMapControl);
+            toolGetResult = toolRunControl as IToolGetResult;
         }
         #endregion
 
         #region 关闭测量窗口时重置
-        private void ResetMessureData()
+        private void ResetMeasureData()
         {
-            //if (newLineFeedback != null)
-            //{
-            //    newLineFeedback.Stop();
-            //    newLineFeedback = null;
-            //}
-            //if (newPolygonFeedback != null)
-            //{
-            //    newPolygonFeedback.Stop();
-            //    newPolygonFeedback = null;
-            //    areaPointColl.RemovePoints(0, areaPointColl.PointCount);
-            //}
-
+            toolRunControl = null;
+            toolGetResult = null;
+            if (newLineFeedback != null)
+            {
+                newLineFeedback.Stop();
+                newLineFeedback = null;
+            }
+            if (newPolygonFeedback != null)
+            {
+                newPolygonFeedback.Stop();
+                newPolygonFeedback = null;
+                //areaPointColl.RemovePoints(0, areaPointColl.PointCount);
+            }
+            mainMapControl.ActiveView.PartialRefresh(esriViewDrawPhase.esriViewForeground, null, null);
             mainMapControl.MousePointer = ESRI.ArcGIS.Controls.esriControlsMousePointer.esriPointerDefault;
         }
         #endregion
         #endregion
 
         #region 地图控件操作事件
+        /* 
+         * 这里用了设计模式，通过一个接口让所有操作控件的工具各自实现自己的方法
+         * 但是这里有一个失误就是接口的参数应该时所有工具都可能用到的一个参数
+         * 而我已经设计完了，所以只能用到什么参数就添加什么参数
+         * 但弊端就是改一个接口所有实现类都得改
+         * 以后不这样
+         */
         #region 鼠标按下事件
         private void mainMapControl_OnMouseDown(object sender, ESRI.ArcGIS.Controls.IMapControlEvents2_OnMouseDownEvent e)
         {
+            clickPT = (mainMapControl.Map as IActiveView).ScreenDisplay.DisplayTransformation.ToMapPoint(e.x, e.y);
             if (toolRunControl != null)
             {
-                toolRunControl.OnMouseDownRun();
+                toolRunControl.OnMouseDownRun(clickPT);
             }
         }
         #endregion
@@ -340,9 +368,16 @@ namespace MapOperation
         #region 鼠标移动事件
         private void mainMapControl_OnMouseMove(object sender, ESRI.ArcGIS.Controls.IMapControlEvents2_OnMouseMoveEvent e)
         {
+            // 底部信息显示坐标和单位
+            barCoorTxt.Text = String.Format("当前的坐标为：X = {0:#.###} , Y = {1:#.###} {2}", e.mapX, e.mapY, mapUnitHelper.GetMapUnitString());
+            movePT = (mainMapControl.Map as IActiveView).ScreenDisplay.DisplayTransformation.ToMapPoint(e.x, e.y);
             if (toolRunControl != null)
             {
-                toolRunControl.OnMouseMoveRun();
+                toolRunControl.OnMouseMoveRun(movePT);
+            }
+            if (toolGetResult !=null)
+            {
+                frmMeasureResult.lblMeasureResult.Text = toolGetResult.GetResult(mapUnitHelper.GetMapUnitString());
             }
         }
         #endregion
@@ -355,6 +390,28 @@ namespace MapOperation
                 toolRunControl.OnMouseUpRun();
             }
         }
+        #endregion
+
+        #region 地图替换事件
+        private void mainMapControl_OnMapReplaced(object sender, IMapControlEvents2_OnMapReplacedEvent e)
+        {
+            // 地图替换时更新底部坐标信息的单位
+            mapUnitHelper = new MapUnitHelper(mainMapControl.Map.MapUnits);
+        }
+        #endregion
+
+        #region 鼠标双击事件
+        private void mainMapControl_OnDoubleClick(object sender, IMapControlEvents2_OnDoubleClickEvent e)
+        {
+            if (toolRunControl != null)
+            {
+                toolRunControl.OnDoubleClickRun();
+            }
+            if (toolGetResult != null)
+            {
+                frmMeasureResult.lblMeasureResult.Text = toolGetResult.GetResult(mapUnitHelper.GetMapUnitString());
+            }
+        } 
         #endregion
 
         #endregion

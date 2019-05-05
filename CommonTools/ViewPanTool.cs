@@ -1,4 +1,5 @@
 ﻿using ESRI.ArcGIS.Controls;
+using ESRI.ArcGIS.Geometry;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -26,22 +27,30 @@ namespace CommonTools
         /// </summary>
         public AxMapControl MapControl { get; set; }
         /// <summary>
-        /// 鼠标按钮按下时运行
+        /// 鼠标按下时运行
         /// </summary>
-        public void OnMouseDownRun()
+        /// <param name="clickPT">地图点</param>
+        public void OnMouseDownRun(IPoint clickPT)
         {
             MapControl.Pan();
         }
         /// <summary>
         /// 鼠标移动时运行
         /// </summary>
-        public void OnMouseMoveRun()
+        /// <param name="movePT">地图点</param>
+        public void OnMouseMoveRun(IPoint movePT)
         {
         }
         /// <summary>
         /// 鼠标按钮抬起时运行
         /// </summary>
         public void OnMouseUpRun()
+        {
+        }
+        /// <summary>
+        /// 鼠标按钮双击时运行
+        /// </summary>
+        public void OnDoubleClickRun()
         {
         }
     }

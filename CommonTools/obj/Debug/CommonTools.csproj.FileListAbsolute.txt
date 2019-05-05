@@ -44,3 +44,5 @@ D:\Workspace\AELearn\CommonTools\bin\Debug\ESRI.ArcGIS.Animation.xml
 D:\Workspace\AELearn\CommonTools\bin\Debug\ESRI.ArcGIS.Geoprocessing.xml
 D:\Workspace\AELearn\CommonTools\bin\Debug\ESRI.ArcGIS.DataSourcesNetCDF.xml
 D:\Workspace\AELearn\CommonTools\bin\Debug\ESRI.ArcGIS.GeoAnalyst.xml
+D:\Workspace\AELearn\CommonTools\bin\Debug\ESRI.ArcGIS.Geometry.dll
+D:\Workspace\AELearn\CommonTools\bin\Debug\ESRI.ArcGIS.Geometry.xml

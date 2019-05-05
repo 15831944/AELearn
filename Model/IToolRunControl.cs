@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ESRI.ArcGIS.Geometry;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,16 +13,22 @@ namespace Model
     public interface IToolRunControl
     {
         /// <summary>
-        /// 按下鼠标时运行
+        /// 鼠标按下时运行
         /// </summary>
-        void OnMouseDownRun();
+        /// <param name="clickPT">地图点</param>
+        void OnMouseDownRun(IPoint clickPT);
         /// <summary>
         /// 抬起鼠标时运行
         /// </summary>
         void OnMouseUpRun();
         /// <summary>
-        /// 移动鼠标时运行
+        /// 鼠标移动时运行
         /// </summary>
-        void OnMouseMoveRun();
+        /// <param name="movePT">地图点</param>
+        void OnMouseMoveRun(IPoint movePT);
+        /// <summary>
+        /// 鼠标双击时运行
+        /// </summary>
+        void OnDoubleClickRun();
     }
 }

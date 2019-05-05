@@ -27,10 +27,19 @@ namespace CommonTools
         /// 绑定的地图控件
         /// </summary>
         public AxMapControl MapControl { get; set; }
+
         /// <summary>
-        /// 鼠标按钮落下时运行
+        /// 鼠标双击时运行
         /// </summary>
-        public void OnMouseDownRun()
+        public void OnDoubleClickRun()
+        {
+        }
+
+        /// <summary>
+        /// 鼠标按下时运行
+        /// </summary>
+        /// <param name="clickPT">地图点</param>
+        public void OnMouseDownRun(IPoint clickPT)
         {
             IEnvelope envelope = MapControl.TrackRectangle();
             if (envelope == null || envelope.IsEmpty || envelope.Width == 0 || envelope.Height == 0) return;
@@ -40,7 +49,8 @@ namespace CommonTools
         /// <summary>
         /// 鼠标移动时运行
         /// </summary>
-        public void OnMouseMoveRun()
+        /// <param name="movePT">地图点</param>
+        public void OnMouseMoveRun(IPoint movePT)
         {
         }
         /// <summary>

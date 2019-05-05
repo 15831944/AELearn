@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ESRI.ArcGIS.Geometry, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,6 +46,7 @@
   <ItemGroup>
     <Compile Include="EnumMeasureOperation.cs" />
     <Compile Include="CPoint.cs" />
+    <Compile Include="IToolGetResult.cs" />
     <Compile Include="IToolRunControl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

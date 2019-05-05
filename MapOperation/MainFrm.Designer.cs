@@ -128,6 +128,8 @@
             this.mainMapControl.OnMouseDown += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseDownEventHandler(this.mainMapControl_OnMouseDown);
             this.mainMapControl.OnMouseUp += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseUpEventHandler(this.mainMapControl_OnMouseUp);
             this.mainMapControl.OnMouseMove += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseMoveEventHandler(this.mainMapControl_OnMouseMove);
+            this.mainMapControl.OnDoubleClick += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnDoubleClickEventHandler(this.mainMapControl_OnDoubleClick);
+            this.mainMapControl.OnMapReplaced += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMapReplacedEventHandler(this.mainMapControl_OnMapReplaced);
             // 
             // axTOCControl1
             // 
@@ -545,14 +547,14 @@
             // btnMeasureLength
             // 
             this.btnMeasureLength.Name = "btnMeasureLength";
-            this.btnMeasureLength.Size = new System.Drawing.Size(216, 26);
+            this.btnMeasureLength.Size = new System.Drawing.Size(144, 26);
             this.btnMeasureLength.Text = "距离量测";
             this.btnMeasureLength.Click += new System.EventHandler(this.btnMeasureLength_Click);
             // 
             // btnMeasureArea
             // 
             this.btnMeasureArea.Name = "btnMeasureArea";
-            this.btnMeasureArea.Size = new System.Drawing.Size(216, 26);
+            this.btnMeasureArea.Size = new System.Drawing.Size(144, 26);
             this.btnMeasureArea.Text = "面积量测";
             this.btnMeasureArea.Click += new System.EventHandler(this.btnMeasureArea_Click);
             // 

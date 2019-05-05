@@ -24,9 +24,14 @@ namespace MapOperation
         {
             this.mapControl = mapControl;
         }
-
+        /// <summary>
+        /// 得到测量窗口
+        /// </summary>
+        /// <param name="enumMeasureType">测量类型</param>
+        /// <param name="frmMeasureResult">窗口</param>
         public void GetMeasureFrm(EnumMeasureOperation enumMeasureType,ref FrmMeasureResult frmMeasureResult)
         {
+            IToolRunControl tool;
             mapControl.MousePointer = esriControlsMousePointer.esriPointerCrosshair;
             // 单例实例窗口，如果存在则调到最前端
             if (frmMeasureResult == null || frmMeasureResult.IsDisposed)
