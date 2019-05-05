@@ -503,13 +503,13 @@
             // btnExportRegion
             // 
             this.btnExportRegion.Name = "btnExportRegion";
-            this.btnExportRegion.Size = new System.Drawing.Size(144, 26);
+            this.btnExportRegion.Size = new System.Drawing.Size(216, 26);
             this.btnExportRegion.Text = "区域导出";
             // 
             // btnExportMap
             // 
             this.btnExportMap.Name = "btnExportMap";
-            this.btnExportMap.Size = new System.Drawing.Size(144, 26);
+            this.btnExportMap.Size = new System.Drawing.Size(216, 26);
             this.btnExportMap.Text = "全域导出";
             // 
             // BookMark
@@ -524,14 +524,14 @@
             // btnAddBookMark
             // 
             this.btnAddBookMark.Name = "btnAddBookMark";
-            this.btnAddBookMark.Size = new System.Drawing.Size(144, 26);
+            this.btnAddBookMark.Size = new System.Drawing.Size(216, 26);
             this.btnAddBookMark.Text = "添加书签";
             this.btnAddBookMark.Click += new System.EventHandler(this.btnAddBookMark_Click);
             // 
             // btnMangeBookMark
             // 
             this.btnMangeBookMark.Name = "btnMangeBookMark";
-            this.btnMangeBookMark.Size = new System.Drawing.Size(144, 26);
+            this.btnMangeBookMark.Size = new System.Drawing.Size(216, 26);
             this.btnMangeBookMark.Text = "管理书签";
             this.btnMangeBookMark.Click += new System.EventHandler(this.btnMangeBookMark_Click);
             // 
@@ -547,14 +547,14 @@
             // btnMeasureLength
             // 
             this.btnMeasureLength.Name = "btnMeasureLength";
-            this.btnMeasureLength.Size = new System.Drawing.Size(144, 26);
+            this.btnMeasureLength.Size = new System.Drawing.Size(216, 26);
             this.btnMeasureLength.Text = "距离量测";
             this.btnMeasureLength.Click += new System.EventHandler(this.btnMeasureLength_Click);
             // 
             // btnMeasureArea
             // 
             this.btnMeasureArea.Name = "btnMeasureArea";
-            this.btnMeasureArea.Size = new System.Drawing.Size(144, 26);
+            this.btnMeasureArea.Size = new System.Drawing.Size(216, 26);
             this.btnMeasureArea.Text = "面积量测";
             this.btnMeasureArea.Click += new System.EventHandler(this.btnMeasureArea_Click);
             // 
@@ -571,20 +571,23 @@
             // btnSelFeature
             // 
             this.btnSelFeature.Name = "btnSelFeature";
-            this.btnSelFeature.Size = new System.Drawing.Size(159, 26);
+            this.btnSelFeature.Size = new System.Drawing.Size(216, 26);
             this.btnSelFeature.Text = "要素选择";
+            this.btnSelFeature.Click += new System.EventHandler(this.btnSelFeature_Click);
             // 
             // btnZoomToSel
             // 
             this.btnZoomToSel.Name = "btnZoomToSel";
-            this.btnZoomToSel.Size = new System.Drawing.Size(159, 26);
+            this.btnZoomToSel.Size = new System.Drawing.Size(216, 26);
             this.btnZoomToSel.Text = "缩放至选择";
+            this.btnZoomToSel.Click += new System.EventHandler(this.btnZoomToSel_Click);
             // 
             // btnClearSel
             // 
             this.btnClearSel.Name = "btnClearSel";
-            this.btnClearSel.Size = new System.Drawing.Size(159, 26);
+            this.btnClearSel.Size = new System.Drawing.Size(216, 26);
             this.btnClearSel.Text = "清除选择";
+            this.btnClearSel.Click += new System.EventHandler(this.btnClearSel_Click);
             // 
             // toolStripMenuItem1
             // 

@@ -3,6 +3,7 @@ using CommonTools;
 using ESRI.ArcGIS.Carto;
 using ESRI.ArcGIS.Controls;
 using ESRI.ArcGIS.Display;
+using ESRI.ArcGIS.Geodatabase;
 using ESRI.ArcGIS.Geometry;
 using MapViewControl;
 using Model;
@@ -27,6 +28,7 @@ namespace MapOperation
         ViewControlHelper viewControlHelper;
         IToolRunControl toolRunControl;
         IToolGetResult toolGetResult;
+        SelectFeatureTool selectFeatureTool;
 
         MapUnitHelper mapUnitHelper;
 
@@ -346,6 +348,50 @@ namespace MapOperation
         #endregion
         #endregion
 
+        #region 要素操作模块
+        #region 要素选择
+        private void btnSelFeature_Click(object sender, EventArgs e)
+        {
+            selectFeatureTool = new SelectFeatureTool(mainMapControl);
+            toolRunControl = selectFeatureTool;
+        }
+        #endregion
+
+        #region 要素缩放
+        private void btnZoomToSel_Click(object sender, EventArgs e)
+        {
+            int selectFeatureNum = mainMapControl.Map.SelectionCount;
+            if (selectFeatureNum == 0)
+            {
+                MessageBox.Show("请先选择要素", "提示");
+            }
+            else
+            {
+                ISelection selection = mainMapControl.Map.FeatureSelection;
+                IEnumFeature enumFeature = selection as IEnumFeature;
+                enumFeature.Reset();
+                IEnvelope env = new EnvelopeClass();
+                IFeature feature = null;
+                while ((feature = enumFeature.Next()) != null)
+                {
+                    env.Union(feature.Extent);
+                }
+                env.Expand(1.1, 1.1, true);
+                mainMapControl.ActiveView.Extent = env;
+                mainMapControl.ActiveView.Refresh();
+            }
+        }
+        #endregion
+
+        #region 要素清除
+        private void btnClearSel_Click(object sender, EventArgs e)
+        {
+            mainMapControl.ActiveView.FocusMap.ClearSelection();
+            mainMapControl.ActiveView.PartialRefresh(esriViewDrawPhase.esriViewGeoSelection, null, mainMapControl.ActiveView.Extent);
+        }
+        #endregion
+        #endregion
+
         #region 地图控件操作事件
         /* 
          * 这里用了设计模式，通过一个接口让所有操作控件的工具各自实现自己的方法
@@ -357,6 +403,7 @@ namespace MapOperation
         #region 鼠标按下事件
         private void mainMapControl_OnMouseDown(object sender, ESRI.ArcGIS.Controls.IMapControlEvents2_OnMouseDownEvent e)
         {
+            if (selectFeatureTool != null) selectFeatureTool.GetEventArgs(e);
             clickPT = (mainMapControl.Map as IActiveView).ScreenDisplay.DisplayTransformation.ToMapPoint(e.x, e.y);
             if (toolRunControl != null)
             {
@@ -411,7 +458,7 @@ namespace MapOperation
             {
                 frmMeasureResult.lblMeasureResult.Text = toolGetResult.GetResult(mapUnitHelper.GetMapUnitString());
             }
-        } 
+        }
         #endregion
 
         #endregion
