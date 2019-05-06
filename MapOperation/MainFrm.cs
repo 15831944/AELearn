@@ -33,6 +33,7 @@ namespace MapOperation
         MapUnitHelper mapUnitHelper;
 
         FrmMeasureResult frmMeasureResult = null;   //数据测量窗口
+        FrmMapExport frmMapExport;
         //绘图工具
         INewLineFeedback newLineFeedback;
         INewPolygonFeedback newPolygonFeedback;
@@ -392,6 +393,29 @@ namespace MapOperation
         #endregion
         #endregion
 
+        #region 地图导出模块
+        #region 区域导出
+        private void btnExportRegion_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
+
+        #region 全局导出
+        private void btnExportMap_Click(object sender, EventArgs e)
+        {
+            if (frmMapExport == null || frmMapExport.IsDisposed)
+            {
+                frmMapExport = new FrmMapExport(mainMapControl.ActiveView);
+            }
+            frmMapExport.IsRegion = false;
+            frmMapExport.GetGeometry = mainMapControl.ActiveView.Extent;
+            frmMapExport.Show();
+            frmMapExport.Activate();
+        }
+        #endregion
+        #endregion
+
         #region 地图控件操作事件
         /* 
          * 这里用了设计模式，通过一个接口让所有操作控件的工具各自实现自己的方法
@@ -462,6 +486,5 @@ namespace MapOperation
         #endregion
 
         #endregion
-
     }
 }

@@ -45,3 +45,4 @@ D:\Workspace\AELearn\MapOperation\bin\Debug\ESRI.ArcGIS.Geometry.xml
 D:\Workspace\AELearn\MapOperation\obj\Debug\MapOperation.FrmMeasureResult.resources
 D:\Workspace\AELearn\MapOperation\bin\Debug\ESRI.ArcGIS.Display.dll
 D:\Workspace\AELearn\MapOperation\bin\Debug\ESRI.ArcGIS.Display.xml
+D:\Workspace\AELearn\MapOperation\obj\Debug\MapOperation.FrmMapExport.resources

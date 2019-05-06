@@ -114,6 +114,12 @@
     <Compile Include="FrmManagerBookmark.Designer.cs">
       <DependentUpon>FrmManagerBookmark.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmMapExport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMapExport.Designer.cs">
+      <DependentUpon>FrmMapExport.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMeasureResult.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmManagerBookmark.resx">
       <DependentUpon>FrmManagerBookmark.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMapExport.resx">
+      <DependentUpon>FrmMapExport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMeasureResult.resx">
       <DependentUpon>FrmMeasureResult.cs</DependentUpon>

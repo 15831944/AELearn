@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="DrawLineFeedbackTool.cs" />
     <Compile Include="DrawPolygonFeedbackTool.cs" />
+    <Compile Include="ExportRegionTool.cs" />
     <Compile Include="MapUnitHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SelectFeatureTool.cs" />
