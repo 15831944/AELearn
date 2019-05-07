@@ -423,6 +423,12 @@ namespace MapOperation
          * 而我已经设计完了，所以只能用到什么参数就添加什么参数
          * 但弊端就是改一个接口所有实现类都得改
          * 以后不这样
+         * 
+         * 20190507
+         * 
+         * 一开始没设计好真是太糟心了
+         * 不太想改了，修修补补成了一堆垃圾代码
+         * 以后不这样了
          */
         #region 鼠标按下事件
         private void mainMapControl_OnMouseDown(object sender, ESRI.ArcGIS.Controls.IMapControlEvents2_OnMouseDownEvent e)
@@ -432,6 +438,17 @@ namespace MapOperation
             if (toolRunControl != null)
             {
                 toolRunControl.OnMouseDownRun(clickPT);
+            }
+            if (toolRunControl is ExportRegionTool)
+            {
+                if (frmMapExport == null || frmMapExport.IsDisposed)
+                {
+                    frmMapExport = new FrmMapExport(mainMapControl.ActiveView);
+                }
+                frmMapExport.IsRegion = true;
+                frmMapExport.GetGeometry = (toolRunControl as ExportRegionTool).polygon;
+                frmMapExport.Show();
+                frmMapExport.Activate();
             }
         }
         #endregion

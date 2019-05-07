@@ -1,12 +1,15 @@
 ﻿using ESRI.ArcGIS.Carto;
 using ESRI.ArcGIS.Controls;
 using ESRI.ArcGIS.Display;
+using ESRI.ArcGIS.esriSystem;
 using ESRI.ArcGIS.Geometry;
+using ESRI.ArcGIS.Output;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CommonTools
 {
@@ -87,5 +90,62 @@ namespace CommonTools
             }
         }
 
+        /// <summary>
+        /// 导出地图
+        /// </summary>
+        /// <param name="activeView">当前地图</param>
+        /// <param name="geo">几何图形</param>
+        /// <param name="OutputResolution">输出分辨率</param>
+        /// <param name="width">宽</param>
+        /// <param name="height">高</param>
+        /// <param name="expPath">输出路径</param>
+        /// <param name="isRegion">是否时范围输出</param>
+        public static void ExportView(IActiveView activeView, IGeometry geo, int OutputResolution, int width, int height, string expPath, bool isRegion)
+        {
+            IExport export = null;
+            IEnvelope envelope = geo.Envelope;
+            string outputType = System.IO.Path.GetExtension(expPath);
+            switch (outputType)
+            {
+                case ".jpg":
+                    export = new ExportJPEGClass();
+                    break;
+                case ".bmp":
+                    export = new ExportBMPClass();
+                    break;
+                case ".gif":
+                    export = new ExportGIFClass();
+                    break;
+                case ".tif":
+                    export = new ExportTIFFClass();
+                    break;
+                case ".png":
+                    export = new ExportPNGClass();
+                    break;
+                case ".pdf":
+                    export = new ExportPDFClass();
+                    break;
+                default:
+                    MessageBox.Show("没有输出格式，默认到JPEG格式");
+                    export = new ExportJPEGClass();
+                    break;
+            }
+
+            export.ExportFileName = expPath;
+            tagRECT rect = new tagRECT();
+            rect.top = 0; rect.left = 0;
+            rect.right = width; rect.bottom = height;
+            if (isRegion)
+            {
+                activeView.GraphicsContainer.DeleteAllElements();
+                activeView.Refresh();
+            }
+            IEnvelope env = new EnvelopeClass();
+            env.PutCoords((double)rect.left, (double)rect.top, (double)rect.right, (double)rect.bottom);
+            export.PixelBounds = env;
+            activeView.Output(export.StartExporting(), OutputResolution, ref rect, envelope, null);
+            export.FinishExporting();
+            export.Cleanup();
+        }
     }
 }

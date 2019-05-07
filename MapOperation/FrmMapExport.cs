@@ -1,4 +1,5 @@
-﻿using ESRI.ArcGIS.Carto;
+﻿using CommonTools;
+using ESRI.ArcGIS.Carto;
 using ESRI.ArcGIS.esriSystem;
 using ESRI.ArcGIS.Geometry;
 using System;
@@ -121,6 +122,7 @@ namespace MapOperation
         }
         #endregion
 
+        #region 导出地图
         private void btnExport_Click(object sender, EventArgs e)
         {
             if (txtExPath.Text == "")
@@ -145,8 +147,12 @@ namespace MapOperation
             {
                 try
                 {
-
-
+                    int resolution = int.Parse(cboResolution.Text);  //输出图片的分辨率
+                    int width = int.Parse(txtWidth.Text);            //输出图片的宽度，以像素为单位
+                    int height = int.Parse(txtHeight.Text);          //输出图片的高度，以像素为单位
+                    ExportMapHelper.ExportView(activeView, geometry, resolution, width, height, savePath, isRegion);
+                    activeView.GraphicsContainer.DeleteAllElements();
+                    activeView.Refresh();
                     MessageBox.Show("导出成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception)
@@ -154,6 +160,7 @@ namespace MapOperation
                     MessageBox.Show("导出失败！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-        }
+        } 
+        #endregion
     }
 }

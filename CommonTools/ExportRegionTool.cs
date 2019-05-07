@@ -12,6 +12,8 @@ namespace CommonTools
 {
     public class ExportRegionTool : IToolRunControl
     {
+        public IPolygon polygon;
+
         private AxMapControl mapControl;
         public ExportRegionTool(AxMapControl mapControl)
         {
@@ -26,7 +28,7 @@ namespace CommonTools
         {
             mapControl.ActiveView.GraphicsContainer.DeleteAllElements();
             mapControl.ActiveView.Refresh();
-            IPolygon polygon = DrawPolygon(mapControl);
+            polygon = DrawPolygon(mapControl);
             if (polygon == null) return;
             ExportMapHelper.AddElement(polygon, mapControl.ActiveView);
         }
