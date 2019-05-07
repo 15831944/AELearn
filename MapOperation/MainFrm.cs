@@ -397,7 +397,7 @@ namespace MapOperation
         #region 区域导出
         private void btnExportRegion_Click(object sender, EventArgs e)
         {
-
+            toolRunControl = new ExportRegionTool(mainMapControl);
         }
         #endregion
 

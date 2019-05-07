@@ -46,3 +46,7 @@ D:\Workspace\AELearn\CommonTools\bin\Debug\ESRI.ArcGIS.DataSourcesNetCDF.xml
 D:\Workspace\AELearn\CommonTools\bin\Debug\ESRI.ArcGIS.GeoAnalyst.xml
 D:\Workspace\AELearn\CommonTools\bin\Debug\ESRI.ArcGIS.Geometry.dll
 D:\Workspace\AELearn\CommonTools\bin\Debug\ESRI.ArcGIS.Geometry.xml
+D:\Workspace\AELearn\CommonTools\bin\Debug\ESRI.ArcGIS.Carto.dll
+D:\Workspace\AELearn\CommonTools\bin\Debug\ESRI.ArcGIS.GeoDatabaseExtensions.dll
+D:\Workspace\AELearn\CommonTools\bin\Debug\ESRI.ArcGIS.Carto.xml
+D:\Workspace\AELearn\CommonTools\bin\Debug\ESRI.ArcGIS.GeoDatabaseExtensions.xml

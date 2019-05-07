@@ -28,6 +28,7 @@ namespace CommonTools
             mapControl.ActiveView.Refresh();
             IPolygon polygon = DrawPolygon(mapControl);
             if (polygon == null) return;
+            ExportMapHelper.AddElement(polygon, mapControl.ActiveView);
         }
 
         public void OnMouseMoveRun(IPoint movePT)
