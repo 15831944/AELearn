@@ -31,14 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFrm));
             this.engleEyeMapControl = new ESRI.ArcGIS.Controls.AxMapControl();
             this.mainMapControl = new ESRI.ArcGIS.Controls.AxMapControl();
-            this.axTOCControl1 = new ESRI.ArcGIS.Controls.AxTOCControl();
+            this.axTOCControl = new ESRI.ArcGIS.Controls.AxTOCControl();
             this.axLicenseControl1 = new ESRI.ArcGIS.Controls.AxLicenseControl();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.DataView = new System.Windows.Forms.TabPage();
             this.PageLayoutView = new System.Windows.Forms.TabPage();
-            this.axPageLayoutControl1 = new ESRI.ArcGIS.Controls.AxPageLayoutControl();
+            this.axPageLayoutControl = new ESRI.ArcGIS.Controls.AxPageLayoutControl();
             this.panel1 = new System.Windows.Forms.Panel();
             this.barCoorTxt = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -89,7 +89,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             ((System.ComponentModel.ISupportInitialize)(this.engleEyeMapControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainMapControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axTOCControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axTOCControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axLicenseControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -102,7 +102,7 @@
             this.tabControl1.SuspendLayout();
             this.DataView.SuspendLayout();
             this.PageLayoutView.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.axPageLayoutControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axPageLayoutControl)).BeginInit();
             this.panel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -112,38 +112,43 @@
             // 
             this.engleEyeMapControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.engleEyeMapControl.Location = new System.Drawing.Point(0, 0);
+            this.engleEyeMapControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.engleEyeMapControl.Name = "engleEyeMapControl";
             this.engleEyeMapControl.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("engleEyeMapControl.OcxState")));
-            this.engleEyeMapControl.Size = new System.Drawing.Size(228, 263);
+            this.engleEyeMapControl.Size = new System.Drawing.Size(171, 209);
             this.engleEyeMapControl.TabIndex = 0;
             // 
             // mainMapControl
             // 
             this.mainMapControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainMapControl.Location = new System.Drawing.Point(3, 3);
+            this.mainMapControl.Location = new System.Drawing.Point(2, 2);
+            this.mainMapControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.mainMapControl.Name = "mainMapControl";
             this.mainMapControl.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("mainMapControl.OcxState")));
-            this.mainMapControl.Size = new System.Drawing.Size(650, 507);
+            this.mainMapControl.Size = new System.Drawing.Size(486, 399);
             this.mainMapControl.TabIndex = 0;
             this.mainMapControl.OnMouseDown += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseDownEventHandler(this.mainMapControl_OnMouseDown);
             this.mainMapControl.OnMouseUp += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseUpEventHandler(this.mainMapControl_OnMouseUp);
             this.mainMapControl.OnMouseMove += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseMoveEventHandler(this.mainMapControl_OnMouseMove);
             this.mainMapControl.OnDoubleClick += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnDoubleClickEventHandler(this.mainMapControl_OnDoubleClick);
+            this.mainMapControl.OnAfterScreenDraw += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnAfterScreenDrawEventHandler(this.mainMapControl_OnAfterScreenDraw);
             this.mainMapControl.OnMapReplaced += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMapReplacedEventHandler(this.mainMapControl_OnMapReplaced);
             // 
-            // axTOCControl1
+            // axTOCControl
             // 
-            this.axTOCControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.axTOCControl1.Location = new System.Drawing.Point(0, 0);
-            this.axTOCControl1.Name = "axTOCControl1";
-            this.axTOCControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axTOCControl1.OcxState")));
-            this.axTOCControl1.Size = new System.Drawing.Size(228, 275);
-            this.axTOCControl1.TabIndex = 0;
+            this.axTOCControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.axTOCControl.Location = new System.Drawing.Point(0, 0);
+            this.axTOCControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.axTOCControl.Name = "axTOCControl";
+            this.axTOCControl.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axTOCControl.OcxState")));
+            this.axTOCControl.Size = new System.Drawing.Size(171, 217);
+            this.axTOCControl.TabIndex = 0;
             // 
             // axLicenseControl1
             // 
             this.axLicenseControl1.Enabled = true;
             this.axLicenseControl1.Location = new System.Drawing.Point(486, 3);
+            this.axLicenseControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.axLicenseControl1.Name = "axLicenseControl1";
             this.axLicenseControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axLicenseControl1.OcxState")));
             this.axLicenseControl1.Size = new System.Drawing.Size(32, 32);
@@ -153,6 +158,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -163,26 +169,29 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
             this.splitContainer1.Panel2.Controls.Add(this.axLicenseControl1);
-            this.splitContainer1.Size = new System.Drawing.Size(896, 542);
-            this.splitContainer1.SplitterDistance = 228;
+            this.splitContainer1.Size = new System.Drawing.Size(672, 429);
+            this.splitContainer1.SplitterDistance = 171;
+            this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 0;
             // 
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
             // splitContainer2.Panel1
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.axTOCControl1);
+            this.splitContainer2.Panel1.Controls.Add(this.axTOCControl);
             // 
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.engleEyeMapControl);
-            this.splitContainer2.Size = new System.Drawing.Size(228, 542);
-            this.splitContainer2.SplitterDistance = 275;
+            this.splitContainer2.Size = new System.Drawing.Size(171, 429);
+            this.splitContainer2.SplitterDistance = 217;
+            this.splitContainer2.SplitterWidth = 3;
             this.splitContainer2.TabIndex = 0;
             // 
             // tabControl1
@@ -192,56 +201,61 @@
             this.tabControl1.Controls.Add(this.PageLayoutView);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(664, 542);
+            this.tabControl1.Size = new System.Drawing.Size(498, 429);
             this.tabControl1.TabIndex = 1;
             // 
             // DataView
             // 
             this.DataView.Controls.Add(this.mainMapControl);
             this.DataView.Location = new System.Drawing.Point(4, 4);
+            this.DataView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.DataView.Name = "DataView";
-            this.DataView.Padding = new System.Windows.Forms.Padding(3);
-            this.DataView.Size = new System.Drawing.Size(656, 513);
+            this.DataView.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DataView.Size = new System.Drawing.Size(490, 403);
             this.DataView.TabIndex = 0;
             this.DataView.Text = "数据视图";
             this.DataView.UseVisualStyleBackColor = true;
             // 
             // PageLayoutView
             // 
-            this.PageLayoutView.Controls.Add(this.axPageLayoutControl1);
+            this.PageLayoutView.Controls.Add(this.axPageLayoutControl);
             this.PageLayoutView.Location = new System.Drawing.Point(4, 4);
+            this.PageLayoutView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PageLayoutView.Name = "PageLayoutView";
-            this.PageLayoutView.Padding = new System.Windows.Forms.Padding(3);
-            this.PageLayoutView.Size = new System.Drawing.Size(656, 513);
+            this.PageLayoutView.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PageLayoutView.Size = new System.Drawing.Size(490, 403);
             this.PageLayoutView.TabIndex = 1;
             this.PageLayoutView.Text = "布局视图";
             this.PageLayoutView.UseVisualStyleBackColor = true;
             // 
-            // axPageLayoutControl1
+            // axPageLayoutControl
             // 
-            this.axPageLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.axPageLayoutControl1.Location = new System.Drawing.Point(3, 3);
-            this.axPageLayoutControl1.Name = "axPageLayoutControl1";
-            this.axPageLayoutControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axPageLayoutControl1.OcxState")));
-            this.axPageLayoutControl1.Size = new System.Drawing.Size(650, 507);
-            this.axPageLayoutControl1.TabIndex = 0;
+            this.axPageLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.axPageLayoutControl.Location = new System.Drawing.Point(2, 2);
+            this.axPageLayoutControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.axPageLayoutControl.Name = "axPageLayoutControl";
+            this.axPageLayoutControl.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axPageLayoutControl.OcxState")));
+            this.axPageLayoutControl.Size = new System.Drawing.Size(486, 399);
+            this.axPageLayoutControl.TabIndex = 0;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.splitContainer1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 28);
+            this.panel1.Location = new System.Drawing.Point(0, 25);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(896, 542);
+            this.panel1.Size = new System.Drawing.Size(672, 429);
             this.panel1.TabIndex = 3;
             // 
             // barCoorTxt
             // 
             this.barCoorTxt.Name = "barCoorTxt";
-            this.barCoorTxt.Size = new System.Drawing.Size(99, 20);
+            this.barCoorTxt.Size = new System.Drawing.Size(80, 17);
             this.barCoorTxt.Text = "当前坐标为：";
             // 
             // statusStrip1
@@ -249,10 +263,9 @@
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.barCoorTxt});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 570);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 454);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(896, 25);
+            this.statusStrip1.Size = new System.Drawing.Size(672, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -268,7 +281,7 @@
             this.AddSDE,
             this.btnAddTxt});
             this.AddData.Name = "AddData";
-            this.AddData.Size = new System.Drawing.Size(81, 24);
+            this.AddData.Size = new System.Drawing.Size(68, 21);
             this.AddData.Text = "加载数据";
             // 
             // AddMXD
@@ -278,41 +291,41 @@
             this.btnIMapDocument,
             this.btncontrolsOpenDocCommandClass});
             this.AddMXD.Name = "AddMXD";
-            this.AddMXD.Size = new System.Drawing.Size(290, 26);
+            this.AddMXD.Size = new System.Drawing.Size(242, 22);
             this.AddMXD.Text = "加载MXD";
             // 
             // btnLoadMxFile
             // 
             this.btnLoadMxFile.Name = "btnLoadMxFile";
-            this.btnLoadMxFile.Size = new System.Drawing.Size(356, 26);
+            this.btnLoadMxFile.Size = new System.Drawing.Size(294, 22);
             this.btnLoadMxFile.Text = "LoadMxFile方法";
             this.btnLoadMxFile.Click += new System.EventHandler(this.btnLoadMxFile_Click);
             // 
             // btnIMapDocument
             // 
             this.btnIMapDocument.Name = "btnIMapDocument";
-            this.btnIMapDocument.Size = new System.Drawing.Size(356, 26);
+            this.btnIMapDocument.Size = new System.Drawing.Size(294, 22);
             this.btnIMapDocument.Text = "IMapDocument方法";
             this.btnIMapDocument.Click += new System.EventHandler(this.btnIMapDocument_Click);
             // 
             // btncontrolsOpenDocCommandClass
             // 
             this.btncontrolsOpenDocCommandClass.Name = "btncontrolsOpenDocCommandClass";
-            this.btncontrolsOpenDocCommandClass.Size = new System.Drawing.Size(356, 26);
+            this.btncontrolsOpenDocCommandClass.Size = new System.Drawing.Size(294, 22);
             this.btncontrolsOpenDocCommandClass.Text = "ControlsOpenDocCommandClass方法";
             this.btncontrolsOpenDocCommandClass.Click += new System.EventHandler(this.btncontrolsOpenDocCommandClass_Click);
             // 
             // btnAddShapefile
             // 
             this.btnAddShapefile.Name = "btnAddShapefile";
-            this.btnAddShapefile.Size = new System.Drawing.Size(290, 26);
+            this.btnAddShapefile.Size = new System.Drawing.Size(242, 22);
             this.btnAddShapefile.Text = "加载Shapefile数据";
             this.btnAddShapefile.Click += new System.EventHandler(this.btnAddShapefile_Click);
             // 
             // btnAddRaster
             // 
             this.btnAddRaster.Name = "btnAddRaster";
-            this.btnAddRaster.Size = new System.Drawing.Size(290, 26);
+            this.btnAddRaster.Size = new System.Drawing.Size(242, 22);
             this.btnAddRaster.Text = "加载Raster数据";
             this.btnAddRaster.Click += new System.EventHandler(this.btnAddRaster_Click);
             // 
@@ -323,41 +336,41 @@
             this.btnAddWholeCAD,
             this.btnAddRasterByCAD});
             this.AddCAD.Name = "AddCAD";
-            this.AddCAD.Size = new System.Drawing.Size(290, 26);
+            this.AddCAD.Size = new System.Drawing.Size(242, 22);
             this.AddCAD.Text = "加载CAD数据";
             // 
             // btnAddCADByLayer
             // 
             this.btnAddCADByLayer.Name = "btnAddCADByLayer";
-            this.btnAddCADByLayer.Size = new System.Drawing.Size(210, 26);
+            this.btnAddCADByLayer.Size = new System.Drawing.Size(176, 22);
             this.btnAddCADByLayer.Text = "AddCADByLayer";
             this.btnAddCADByLayer.Click += new System.EventHandler(this.btnAddCADByLayer_Click);
             // 
             // btnAddWholeCAD
             // 
             this.btnAddWholeCAD.Name = "btnAddWholeCAD";
-            this.btnAddWholeCAD.Size = new System.Drawing.Size(210, 26);
+            this.btnAddWholeCAD.Size = new System.Drawing.Size(176, 22);
             this.btnAddWholeCAD.Text = "AddWholeCAD";
             this.btnAddWholeCAD.Click += new System.EventHandler(this.btnAddWholeCAD_Click);
             // 
             // btnAddRasterByCAD
             // 
             this.btnAddRasterByCAD.Name = "btnAddRasterByCAD";
-            this.btnAddRasterByCAD.Size = new System.Drawing.Size(210, 26);
+            this.btnAddRasterByCAD.Size = new System.Drawing.Size(176, 22);
             this.btnAddRasterByCAD.Text = "AddRasterByCAD";
             this.btnAddRasterByCAD.Click += new System.EventHandler(this.btnAddRasterByCAD_Click);
             // 
             // btnAddPersonGeodatabase
             // 
             this.btnAddPersonGeodatabase.Name = "btnAddPersonGeodatabase";
-            this.btnAddPersonGeodatabase.Size = new System.Drawing.Size(290, 26);
+            this.btnAddPersonGeodatabase.Size = new System.Drawing.Size(242, 22);
             this.btnAddPersonGeodatabase.Text = "加载PersonGeodatabase数据";
             this.btnAddPersonGeodatabase.Click += new System.EventHandler(this.btnAddPersonGeodatabase_Click);
             // 
             // btnAddFileDatabase
             // 
             this.btnAddFileDatabase.Name = "btnAddFileDatabase";
-            this.btnAddFileDatabase.Size = new System.Drawing.Size(290, 26);
+            this.btnAddFileDatabase.Size = new System.Drawing.Size(242, 22);
             this.btnAddFileDatabase.Text = "加载FileDatabase数据";
             this.btnAddFileDatabase.Click += new System.EventHandler(this.btnAddFileDatabase_Click);
             // 
@@ -367,27 +380,27 @@
             this.btnAddSDEByService,
             this.btnAddSDEByDirect});
             this.AddSDE.Name = "AddSDE";
-            this.AddSDE.Size = new System.Drawing.Size(290, 26);
+            this.AddSDE.Size = new System.Drawing.Size(242, 22);
             this.AddSDE.Text = "加载SDE数据库";
             // 
             // btnAddSDEByService
             // 
             this.btnAddSDEByService.Name = "btnAddSDEByService";
-            this.btnAddSDEByService.Size = new System.Drawing.Size(250, 26);
+            this.btnAddSDEByService.Size = new System.Drawing.Size(209, 22);
             this.btnAddSDEByService.Text = "AddSDEBaseOnService";
             this.btnAddSDEByService.Click += new System.EventHandler(this.btnAddSDEByService_Click);
             // 
             // btnAddSDEByDirect
             // 
             this.btnAddSDEByDirect.Name = "btnAddSDEByDirect";
-            this.btnAddSDEByDirect.Size = new System.Drawing.Size(250, 26);
+            this.btnAddSDEByDirect.Size = new System.Drawing.Size(209, 22);
             this.btnAddSDEByDirect.Text = "AddSDEByDirect";
             this.btnAddSDEByDirect.Click += new System.EventHandler(this.btnAddSDEByDirect_Click);
             // 
             // btnAddTxt
             // 
             this.btnAddTxt.Name = "btnAddTxt";
-            this.btnAddTxt.Size = new System.Drawing.Size(290, 26);
+            this.btnAddTxt.Size = new System.Drawing.Size(242, 22);
             this.btnAddTxt.Text = "加载txt文本数据";
             this.btnAddTxt.Click += new System.EventHandler(this.btnAddTxt_Click);
             // 
@@ -397,20 +410,20 @@
             this.btnSaveMap,
             this.btnSaveAsMap});
             this.Save.Name = "Save";
-            this.Save.Size = new System.Drawing.Size(51, 24);
+            this.Save.Size = new System.Drawing.Size(44, 21);
             this.Save.Text = "保存";
             // 
             // btnSaveMap
             // 
             this.btnSaveMap.Name = "btnSaveMap";
-            this.btnSaveMap.Size = new System.Drawing.Size(159, 26);
+            this.btnSaveMap.Size = new System.Drawing.Size(136, 22);
             this.btnSaveMap.Text = "保存地图";
             this.btnSaveMap.Click += new System.EventHandler(this.btnSaveMap_Click);
             // 
             // btnSaveAsMap
             // 
             this.btnSaveAsMap.Name = "btnSaveAsMap";
-            this.btnSaveAsMap.Size = new System.Drawing.Size(159, 26);
+            this.btnSaveAsMap.Size = new System.Drawing.Size(136, 22);
             this.btnSaveAsMap.Text = "地图另存为";
             this.btnSaveAsMap.Click += new System.EventHandler(this.btnSaveAsMap_Click);
             // 
@@ -427,67 +440,67 @@
             this.btnForWardView,
             this.btnFullView});
             this.MapView.Name = "MapView";
-            this.MapView.Size = new System.Drawing.Size(81, 24);
+            this.MapView.Size = new System.Drawing.Size(68, 21);
             this.MapView.Text = "地图浏览";
             // 
             // btnZoomIn
             // 
             this.btnZoomIn.Name = "btnZoomIn";
-            this.btnZoomIn.Size = new System.Drawing.Size(144, 26);
+            this.btnZoomIn.Size = new System.Drawing.Size(124, 22);
             this.btnZoomIn.Text = "拉框放大";
             this.btnZoomIn.Click += new System.EventHandler(this.btnZoomIn_Click);
             // 
             // btnZoomOut
             // 
             this.btnZoomOut.Name = "btnZoomOut";
-            this.btnZoomOut.Size = new System.Drawing.Size(144, 26);
+            this.btnZoomOut.Size = new System.Drawing.Size(124, 22);
             this.btnZoomOut.Text = "拉框缩小";
             this.btnZoomOut.Click += new System.EventHandler(this.btnZoomOut_Click);
             // 
             // btnZoomInStep
             // 
             this.btnZoomInStep.Name = "btnZoomInStep";
-            this.btnZoomInStep.Size = new System.Drawing.Size(144, 26);
+            this.btnZoomInStep.Size = new System.Drawing.Size(124, 22);
             this.btnZoomInStep.Text = "逐级放大";
             this.btnZoomInStep.Click += new System.EventHandler(this.btnZoomInStep_Click);
             // 
             // btnZoomOutStep
             // 
             this.btnZoomOutStep.Name = "btnZoomOutStep";
-            this.btnZoomOutStep.Size = new System.Drawing.Size(144, 26);
+            this.btnZoomOutStep.Size = new System.Drawing.Size(124, 22);
             this.btnZoomOutStep.Text = "逐级缩小";
             this.btnZoomOutStep.Click += new System.EventHandler(this.btnZoomOutStep_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(141, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(121, 6);
             // 
             // btnPan
             // 
             this.btnPan.Name = "btnPan";
-            this.btnPan.Size = new System.Drawing.Size(144, 26);
+            this.btnPan.Size = new System.Drawing.Size(124, 22);
             this.btnPan.Text = "漫游";
             this.btnPan.Click += new System.EventHandler(this.btnPan_Click);
             // 
             // btnFrontView
             // 
             this.btnFrontView.Name = "btnFrontView";
-            this.btnFrontView.Size = new System.Drawing.Size(144, 26);
+            this.btnFrontView.Size = new System.Drawing.Size(124, 22);
             this.btnFrontView.Text = "前一视图";
             this.btnFrontView.Click += new System.EventHandler(this.btnFrontView_Click);
             // 
             // btnForWardView
             // 
             this.btnForWardView.Name = "btnForWardView";
-            this.btnForWardView.Size = new System.Drawing.Size(144, 26);
+            this.btnForWardView.Size = new System.Drawing.Size(124, 22);
             this.btnForWardView.Text = "后一视图";
             this.btnForWardView.Click += new System.EventHandler(this.btnForWardView_Click);
             // 
             // btnFullView
             // 
             this.btnFullView.Name = "btnFullView";
-            this.btnFullView.Size = new System.Drawing.Size(144, 26);
+            this.btnFullView.Size = new System.Drawing.Size(124, 22);
             this.btnFullView.Text = "全图显示";
             this.btnFullView.Click += new System.EventHandler(this.btnFullView_Click);
             // 
@@ -497,20 +510,20 @@
             this.btnExportRegion,
             this.btnExportMap});
             this.MapExport.Name = "MapExport";
-            this.MapExport.Size = new System.Drawing.Size(81, 24);
+            this.MapExport.Size = new System.Drawing.Size(68, 21);
             this.MapExport.Text = "地图导出";
             // 
             // btnExportRegion
             // 
             this.btnExportRegion.Name = "btnExportRegion";
-            this.btnExportRegion.Size = new System.Drawing.Size(144, 26);
+            this.btnExportRegion.Size = new System.Drawing.Size(124, 22);
             this.btnExportRegion.Text = "区域导出";
             this.btnExportRegion.Click += new System.EventHandler(this.btnExportRegion_Click);
             // 
             // btnExportMap
             // 
             this.btnExportMap.Name = "btnExportMap";
-            this.btnExportMap.Size = new System.Drawing.Size(144, 26);
+            this.btnExportMap.Size = new System.Drawing.Size(124, 22);
             this.btnExportMap.Text = "全域导出";
             this.btnExportMap.Click += new System.EventHandler(this.btnExportMap_Click);
             // 
@@ -520,20 +533,20 @@
             this.btnAddBookMark,
             this.btnMangeBookMark});
             this.BookMark.Name = "BookMark";
-            this.BookMark.Size = new System.Drawing.Size(81, 24);
+            this.BookMark.Size = new System.Drawing.Size(68, 21);
             this.BookMark.Text = "书签管理";
             // 
             // btnAddBookMark
             // 
             this.btnAddBookMark.Name = "btnAddBookMark";
-            this.btnAddBookMark.Size = new System.Drawing.Size(144, 26);
+            this.btnAddBookMark.Size = new System.Drawing.Size(124, 22);
             this.btnAddBookMark.Text = "添加书签";
             this.btnAddBookMark.Click += new System.EventHandler(this.btnAddBookMark_Click);
             // 
             // btnMangeBookMark
             // 
             this.btnMangeBookMark.Name = "btnMangeBookMark";
-            this.btnMangeBookMark.Size = new System.Drawing.Size(144, 26);
+            this.btnMangeBookMark.Size = new System.Drawing.Size(124, 22);
             this.btnMangeBookMark.Text = "管理书签";
             this.btnMangeBookMark.Click += new System.EventHandler(this.btnMangeBookMark_Click);
             // 
@@ -543,20 +556,20 @@
             this.btnMeasureLength,
             this.btnMeasureArea});
             this.MapMeasure.Name = "MapMeasure";
-            this.MapMeasure.Size = new System.Drawing.Size(81, 24);
+            this.MapMeasure.Size = new System.Drawing.Size(68, 21);
             this.MapMeasure.Text = "地图量测";
             // 
             // btnMeasureLength
             // 
             this.btnMeasureLength.Name = "btnMeasureLength";
-            this.btnMeasureLength.Size = new System.Drawing.Size(144, 26);
+            this.btnMeasureLength.Size = new System.Drawing.Size(124, 22);
             this.btnMeasureLength.Text = "距离量测";
             this.btnMeasureLength.Click += new System.EventHandler(this.btnMeasureLength_Click);
             // 
             // btnMeasureArea
             // 
             this.btnMeasureArea.Name = "btnMeasureArea";
-            this.btnMeasureArea.Size = new System.Drawing.Size(144, 26);
+            this.btnMeasureArea.Size = new System.Drawing.Size(124, 22);
             this.btnMeasureArea.Text = "面积量测";
             this.btnMeasureArea.Click += new System.EventHandler(this.btnMeasureArea_Click);
             // 
@@ -567,34 +580,34 @@
             this.btnZoomToSel,
             this.btnClearSel});
             this.MapSel.Name = "MapSel";
-            this.MapSel.Size = new System.Drawing.Size(81, 24);
+            this.MapSel.Size = new System.Drawing.Size(68, 21);
             this.MapSel.Text = "要素选择";
             // 
             // btnSelFeature
             // 
             this.btnSelFeature.Name = "btnSelFeature";
-            this.btnSelFeature.Size = new System.Drawing.Size(159, 26);
+            this.btnSelFeature.Size = new System.Drawing.Size(136, 22);
             this.btnSelFeature.Text = "要素选择";
             this.btnSelFeature.Click += new System.EventHandler(this.btnSelFeature_Click);
             // 
             // btnZoomToSel
             // 
             this.btnZoomToSel.Name = "btnZoomToSel";
-            this.btnZoomToSel.Size = new System.Drawing.Size(159, 26);
+            this.btnZoomToSel.Size = new System.Drawing.Size(136, 22);
             this.btnZoomToSel.Text = "缩放至选择";
             this.btnZoomToSel.Click += new System.EventHandler(this.btnZoomToSel_Click);
             // 
             // btnClearSel
             // 
             this.btnClearSel.Name = "btnClearSel";
-            this.btnClearSel.Size = new System.Drawing.Size(159, 26);
+            this.btnClearSel.Size = new System.Drawing.Size(136, 22);
             this.btnClearSel.Text = "清除选择";
             this.btnClearSel.Click += new System.EventHandler(this.btnClearSel_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(25, 24);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(24, 21);
             this.toolStripMenuItem1.Text = " ";
             // 
             // menuStrip1
@@ -611,24 +624,24 @@
             this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(896, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(672, 25);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // MainFrm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(896, 595);
+            this.ClientSize = new System.Drawing.Size(672, 476);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MainFrm";
             this.Text = "地理数据操作";
             ((System.ComponentModel.ISupportInitialize)(this.engleEyeMapControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainMapControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axTOCControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axTOCControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axLicenseControl1)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -641,7 +654,7 @@
             this.tabControl1.ResumeLayout(false);
             this.DataView.ResumeLayout(false);
             this.PageLayoutView.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.axPageLayoutControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axPageLayoutControl)).EndInit();
             this.panel1.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -656,14 +669,14 @@
 
         private ESRI.ArcGIS.Controls.AxMapControl engleEyeMapControl;
         private ESRI.ArcGIS.Controls.AxMapControl mainMapControl;
-        private ESRI.ArcGIS.Controls.AxTOCControl axTOCControl1;
+        private ESRI.ArcGIS.Controls.AxTOCControl axTOCControl;
         private ESRI.ArcGIS.Controls.AxLicenseControl axLicenseControl1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage DataView;
         private System.Windows.Forms.TabPage PageLayoutView;
-        private ESRI.ArcGIS.Controls.AxPageLayoutControl axPageLayoutControl1;
+        private ESRI.ArcGIS.Controls.AxPageLayoutControl axPageLayoutControl;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStripStatusLabel barCoorTxt;
         private System.Windows.Forms.StatusStrip statusStrip1;

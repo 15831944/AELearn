@@ -3,6 +3,7 @@ using CommonTools;
 using ESRI.ArcGIS.Carto;
 using ESRI.ArcGIS.Controls;
 using ESRI.ArcGIS.Display;
+using ESRI.ArcGIS.esriSystem;
 using ESRI.ArcGIS.Geodatabase;
 using ESRI.ArcGIS.Geometry;
 using MapViewControl;
@@ -52,6 +53,7 @@ namespace MapOperation
             mapUnitHelper = new MapUnitHelper(mainMapControl.Map.MapUnits);
             toolRunControl = null;
             toolGetResult = null;
+            axTOCControl.SetBuddyControl(mainMapControl);
         }
         #endregion
 
@@ -435,6 +437,7 @@ namespace MapOperation
         #endregion
         #endregion
 
+        #region 鹰眼视图
         public void SynchronizeEngleEye()
         {
             if (engleEyeMapControl.LayerCount > 0) engleEyeMapControl.ClearLayers();
@@ -502,7 +505,29 @@ namespace MapOperation
             fillShapeElement.Symbol = fillSymbol;
             graphicsContainer.AddElement((IElement)fillShapeElement, 0);
             activeView.PartialRefresh(esriViewDrawPhase.esriViewGraphics, null, null);
+        } 
+        #endregion
+
+        #region 布局视图同步
+        private void CopyToPageLayout()
+        {
+            IObjectCopy pObjectCopy = new ObjectCopyClass();
+            object copyFromMap = mainMapControl.Map;
+            object copiedMap = pObjectCopy.Copy(copyFromMap);//复制地图到copiedMap中
+            object copyToMap = axPageLayoutControl.ActiveView.FocusMap;
+            pObjectCopy.Overwrite(copiedMap, ref copyToMap); //复制地图
+            axPageLayoutControl.ActiveView.Refresh();
         }
+
+        private void mainMapControl_OnAfterScreenDraw(object sender, IMapControlEvents2_OnAfterScreenDrawEvent e)
+        {
+            IActiveView pActiveView = (IActiveView)axPageLayoutControl.ActiveView.FocusMap;
+            IDisplayTransformation displayTransformation = pActiveView.ScreenDisplay.DisplayTransformation;
+            displayTransformation.VisibleBounds = mainMapControl.Extent;
+            axPageLayoutControl.ActiveView.Refresh();
+            CopyToPageLayout();
+        } 
+        #endregion
 
         #region 地图控件操作事件
         /* 
@@ -592,5 +617,6 @@ namespace MapOperation
         #endregion
 
         #endregion
+
     }
 }
