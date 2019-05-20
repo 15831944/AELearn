@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFrm));
-            this.axMapControl2 = new ESRI.ArcGIS.Controls.AxMapControl();
+            this.engleEyeMapControl = new ESRI.ArcGIS.Controls.AxMapControl();
             this.mainMapControl = new ESRI.ArcGIS.Controls.AxMapControl();
             this.axTOCControl1 = new ESRI.ArcGIS.Controls.AxTOCControl();
             this.axLicenseControl1 = new ESRI.ArcGIS.Controls.AxLicenseControl();
@@ -87,7 +87,7 @@
             this.btnClearSel = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            ((System.ComponentModel.ISupportInitialize)(this.axMapControl2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.engleEyeMapControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainMapControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axTOCControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axLicenseControl1)).BeginInit();
@@ -108,14 +108,14 @@
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // axMapControl2
+            // engleEyeMapControl
             // 
-            this.axMapControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.axMapControl2.Location = new System.Drawing.Point(0, 0);
-            this.axMapControl2.Name = "axMapControl2";
-            this.axMapControl2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axMapControl2.OcxState")));
-            this.axMapControl2.Size = new System.Drawing.Size(228, 263);
-            this.axMapControl2.TabIndex = 0;
+            this.engleEyeMapControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.engleEyeMapControl.Location = new System.Drawing.Point(0, 0);
+            this.engleEyeMapControl.Name = "engleEyeMapControl";
+            this.engleEyeMapControl.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("engleEyeMapControl.OcxState")));
+            this.engleEyeMapControl.Size = new System.Drawing.Size(228, 263);
+            this.engleEyeMapControl.TabIndex = 0;
             // 
             // mainMapControl
             // 
@@ -180,7 +180,7 @@
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.axMapControl2);
+            this.splitContainer2.Panel2.Controls.Add(this.engleEyeMapControl);
             this.splitContainer2.Size = new System.Drawing.Size(228, 542);
             this.splitContainer2.SplitterDistance = 275;
             this.splitContainer2.TabIndex = 0;
@@ -503,14 +503,14 @@
             // btnExportRegion
             // 
             this.btnExportRegion.Name = "btnExportRegion";
-            this.btnExportRegion.Size = new System.Drawing.Size(216, 26);
+            this.btnExportRegion.Size = new System.Drawing.Size(144, 26);
             this.btnExportRegion.Text = "区域导出";
             this.btnExportRegion.Click += new System.EventHandler(this.btnExportRegion_Click);
             // 
             // btnExportMap
             // 
             this.btnExportMap.Name = "btnExportMap";
-            this.btnExportMap.Size = new System.Drawing.Size(216, 26);
+            this.btnExportMap.Size = new System.Drawing.Size(144, 26);
             this.btnExportMap.Text = "全域导出";
             this.btnExportMap.Click += new System.EventHandler(this.btnExportMap_Click);
             // 
@@ -626,7 +626,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Name = "MainFrm";
             this.Text = "地理数据操作";
-            ((System.ComponentModel.ISupportInitialize)(this.axMapControl2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.engleEyeMapControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainMapControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axTOCControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axLicenseControl1)).EndInit();
@@ -654,7 +654,7 @@
 
         #endregion
 
-        private ESRI.ArcGIS.Controls.AxMapControl axMapControl2;
+        private ESRI.ArcGIS.Controls.AxMapControl engleEyeMapControl;
         private ESRI.ArcGIS.Controls.AxMapControl mainMapControl;
         private ESRI.ArcGIS.Controls.AxTOCControl axTOCControl1;
         private ESRI.ArcGIS.Controls.AxLicenseControl axLicenseControl1;

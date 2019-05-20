@@ -55,12 +55,13 @@ namespace MapOperation
         }
         #endregion
 
-        #region 各种为文件加载
+        #region 各种文件加载
         #region 地图文档加载
         #region 控件方法加载地图文档
         private void btnLoadMxFile_Click(object sender, EventArgs e)
         {
             addMxdHelper.LoadMxFile(mainMapControl);
+            SynchronizeEngleEye();
         }
         #endregion
 
@@ -68,6 +69,7 @@ namespace MapOperation
         private void btnIMapDocument_Click(object sender, EventArgs e)
         {
             addMxdHelper.IMapDocumentLoadMxd(mainMapControl);
+            SynchronizeEngleEye();
         }
         #endregion
 
@@ -75,6 +77,7 @@ namespace MapOperation
         private void btncontrolsOpenDocCommandClass_Click(object sender, EventArgs e)
         {
             addMxdHelper.ICommandLoadMxd(mainMapControl);
+            SynchronizeEngleEye();
         }
         #endregion
 
@@ -85,6 +88,7 @@ namespace MapOperation
         {
             AddShpHelper addShpHelper = new AddShpHelper();
             addShpHelper.AddShpFile(mainMapControl);
+            SynchronizeEngleEye();
         }
         #endregion
 
@@ -93,6 +97,7 @@ namespace MapOperation
         {
             AddRasterHelper addRasterHelper = new AddRasterHelper();
             addRasterHelper.AddRasterFile(mainMapControl);
+            SynchronizeEngleEye();
         }
         #endregion
 
@@ -102,6 +107,7 @@ namespace MapOperation
         {
             AddCADHelper addCADHelper = new AddCADHelper();
             addCADHelper.AddCADByShp(mainMapControl);
+            SynchronizeEngleEye();
         }
         #endregion
 
@@ -110,6 +116,7 @@ namespace MapOperation
         {
             AddCADHelper addCADHelper = new AddCADHelper();
             addCADHelper.AddWholeCAD(mainMapControl);
+            SynchronizeEngleEye();
         }
         #endregion
 
@@ -118,6 +125,7 @@ namespace MapOperation
         {
             AddCADHelper addCADHelper = new AddCADHelper();
             addCADHelper.AddCADByRaster(mainMapControl);
+            SynchronizeEngleEye();
         }
         #endregion
 
@@ -128,6 +136,7 @@ namespace MapOperation
         {
             AddMdbHelper addMdbHelper = new AddMdbHelper();
             addMdbHelper.AddMdb(mainMapControl);
+            SynchronizeEngleEye();
         }
         #endregion
 
@@ -136,6 +145,7 @@ namespace MapOperation
         {
             AddFolderDbHelper addFolderDbHelper = new AddFolderDbHelper();
             addFolderDbHelper.AddFileDb(mainMapControl);
+            SynchronizeEngleEye();
         }
         #endregion
 
@@ -144,6 +154,7 @@ namespace MapOperation
         private void btnAddSDEByService_Click(object sender, EventArgs e)
         {
             MessageBox.Show("没做SDE数据库，这个功能就没写");
+            SynchronizeEngleEye();
         }
         #endregion
 
@@ -151,6 +162,7 @@ namespace MapOperation
         private void btnAddSDEByDirect_Click(object sender, EventArgs e)
         {
             MessageBox.Show("没做SDE数据库，这个功能就没写");
+            SynchronizeEngleEye();
         }
         #endregion
 
@@ -161,6 +173,7 @@ namespace MapOperation
         {
             FrmAddTxt frmAddTxt = new FrmAddTxt(mainMapControl);
             frmAddTxt.Show();
+            SynchronizeEngleEye();
         }
         #endregion
 
@@ -204,6 +217,7 @@ namespace MapOperation
         private void btnZoomInStep_Click(object sender, EventArgs e)
         {
             viewControlHelper.ViewZoomInStep(mainMapControl);
+            SynchronizeEngleEye();
         }
         #endregion
 
@@ -211,6 +225,7 @@ namespace MapOperation
         private void btnZoomOutStep_Click(object sender, EventArgs e)
         {
             viewControlHelper.ViewZoomOutStep(mainMapControl);
+            SynchronizeEngleEye();
         }
         #endregion
 
@@ -225,6 +240,7 @@ namespace MapOperation
         private void btnFrontView_Click(object sender, EventArgs e)
         {
             viewControlHelper.FrontView(mainMapControl, btnForWardView, btnFrontView);
+            SynchronizeEngleEye();
         }
         #endregion
 
@@ -232,6 +248,7 @@ namespace MapOperation
         private void btnForWardView_Click(object sender, EventArgs e)
         {
             viewControlHelper.ForwardView(mainMapControl, btnFrontView, btnForWardView);
+            SynchronizeEngleEye();
         }
         #endregion
 
@@ -239,6 +256,7 @@ namespace MapOperation
         private void btnFullView_Click(object sender, EventArgs e)
         {
             mainMapControl.Extent = mainMapControl.FullExtent;
+            SynchronizeEngleEye();
         }
         #endregion
         #endregion
@@ -308,7 +326,7 @@ namespace MapOperation
             frmMeasureResult.frmClose += new FrmCloseEventHandle(ResetMeasureData);
             frmMeasureResult.Show();
             // 线反馈工具
-            toolRunControl = new DrawLineFeedbackTool(newLineFeedback,mainMapControl);
+            toolRunControl = new DrawLineFeedbackTool(newLineFeedback, mainMapControl);
             toolGetResult = toolRunControl as IToolGetResult;
         }
         #endregion
@@ -381,6 +399,7 @@ namespace MapOperation
                 mainMapControl.ActiveView.Extent = env;
                 mainMapControl.ActiveView.Refresh();
             }
+            SynchronizeEngleEye();
         }
         #endregion
 
@@ -415,6 +434,75 @@ namespace MapOperation
         }
         #endregion
         #endregion
+
+        public void SynchronizeEngleEye()
+        {
+            if (engleEyeMapControl.LayerCount > 0) engleEyeMapControl.ClearLayers();
+            engleEyeMapControl.SpatialReference = mainMapControl.SpatialReference;
+            for (int i = mainMapControl.LayerCount - 1; i >= 0; i--)
+            {
+                ILayer layerContainers = mainMapControl.get_Layer(i);
+                // 判断图层是否是复合图层
+                if (layerContainers is IGroupLayer || layerContainers is ICompositeLayer)
+                {
+                    ICompositeLayer layers = layerContainers as ICompositeLayer;
+                    for (int j = layers.Count - 1; j >= 0; j--)
+                    {
+                        IFeatureLayer layer = layers.get_Layer(j) as IFeatureLayer;
+                        if (layer != null)
+                        {
+                            // 判断图层的要素是否是点和多点的类型
+                            if (layer.FeatureClass.ShapeType != esriGeometryType.esriGeometryMultipoint
+                                && layer.FeatureClass.ShapeType != esriGeometryType.esriGeometryPoint)
+                            {
+                                engleEyeMapControl.AddLayer(layer);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    // 同上
+                    IFeatureLayer layer = layerContainers as IFeatureLayer;
+                    if (layer != null)
+                    {
+                        if (layer.FeatureClass.ShapeType != esriGeometryType.esriGeometryMultipoint
+                            && layer.FeatureClass.ShapeType != esriGeometryType.esriGeometryPoint)
+                        {
+                            engleEyeMapControl.AddLayer(layer);
+                        }
+                    }
+                }
+                // 数据框设定
+            }
+            engleEyeMapControl.Extent = mainMapControl.FullExtent;
+            IEnvelope env = mainMapControl.Extent;
+            DrawRectangle(env);
+            engleEyeMapControl.ActiveView.Refresh();
+        }
+
+        private void DrawRectangle(IEnvelope env)
+        {
+            IGraphicsContainer graphicsContainer = engleEyeMapControl.Map as IGraphicsContainer;
+            IActiveView activeView = graphicsContainer as IActiveView;
+            graphicsContainer.DeleteAllElements();
+            IRectangleElement rectangleElement = new RectangleElementClass();
+            IElement element = rectangleElement as IElement;
+            element.Geometry = env;
+            IRgbColor color = new RgbColorClass();
+            color = ExportMapHelper.GetRgbColor(255);
+            color.Transparency = 255;
+            ILineSymbol outLine = new SimpleLineSymbolClass();
+            outLine.Width = 2;
+            outLine.Color = color;
+            IFillSymbol fillSymbol = new SimpleFillSymbolClass();
+            fillSymbol.Color = new RgbColorClass() { Transparency = 0 };
+            fillSymbol.Outline = outLine;
+            IFillShapeElement fillShapeElement = element as IFillShapeElement;
+            fillShapeElement.Symbol = fillSymbol;
+            graphicsContainer.AddElement((IElement)fillShapeElement, 0);
+            activeView.PartialRefresh(esriViewDrawPhase.esriViewGraphics, null, null);
+        }
 
         #region 地图控件操作事件
         /* 
@@ -463,7 +551,7 @@ namespace MapOperation
             {
                 toolRunControl.OnMouseMoveRun(movePT);
             }
-            if (toolGetResult !=null)
+            if (toolGetResult != null)
             {
                 frmMeasureResult.lblMeasureResult.Text = toolGetResult.GetResult(mapUnitHelper.GetMapUnitString());
             }
@@ -485,6 +573,7 @@ namespace MapOperation
         {
             // 地图替换时更新底部坐标信息的单位
             mapUnitHelper = new MapUnitHelper(mainMapControl.Map.MapUnits);
+            SynchronizeEngleEye();
         }
         #endregion
 
