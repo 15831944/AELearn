@@ -42,6 +42,10 @@ namespace MapOperation
         private IPoint clickPT = null;
         private IPoint movePT = null;
         private IPointCollection areaPointColl = new MultipointClass();
+
+        private IPoint moveLayerPoint = new PointClass();
+        private ILayer moveLayer = null;
+        private int toIndex;
         #endregion
 
         #region 初始化
@@ -505,7 +509,7 @@ namespace MapOperation
             fillShapeElement.Symbol = fillSymbol;
             graphicsContainer.AddElement((IElement)fillShapeElement, 0);
             activeView.PartialRefresh(esriViewDrawPhase.esriViewGraphics, null, null);
-        } 
+        }
         #endregion
 
         #region 布局视图同步
@@ -526,7 +530,7 @@ namespace MapOperation
             displayTransformation.VisibleBounds = mainMapControl.Extent;
             axPageLayoutControl.ActiveView.Refresh();
             CopyToPageLayout();
-        } 
+        }
         #endregion
 
         #region 地图控件操作事件
@@ -618,5 +622,77 @@ namespace MapOperation
 
         #endregion
 
+        #region TOC同步和拖拽
+        private void axTOCControl_OnMouseDown(object sender, ITOCControlEvents_OnMouseDownEvent e)
+        {
+            if (e.button == 1)
+            {
+                esriTOCControlItem item = esriTOCControlItem.esriTOCControlItemNone;
+                IBasicMap map = null;
+                object unk = null;
+                object data = null;
+                ILayer layer = null;
+                axTOCControl.HitTest(e.x, e.y, ref item, ref map, ref layer, ref unk, ref data);
+                if (layer == null) return;
+
+                moveLayerPoint.PutCoords(e.x, e.y);
+                if (item == esriTOCControlItem.esriTOCControlItemLayer)
+                {
+                    if (layer is IAnnotationSublayer)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        moveLayer = layer;
+                    }
+                }
+            }
+            if (e.button == 2)
+            {
+                contextMenuStrip.Show(Control.MousePosition);
+            }
+        }
+
+        private void axTOCControl_OnMouseUp(object sender, ITOCControlEvents_OnMouseUpEvent e)
+        {
+            if (e.button == 1 && moveLayer != null && moveLayerPoint.Y != e.y)
+            {
+                esriTOCControlItem item = esriTOCControlItem.esriTOCControlItemNone;
+                IBasicMap map = null;
+                object unk = null;
+                object data = null;
+                ILayer layer = null;
+                axTOCControl.HitTest(e.x, e.y, ref item, ref map, ref layer, ref unk, ref data);
+                IMap focusMap = mainMapControl.ActiveView.FocusMap;
+                if (item == esriTOCControlItem.esriTOCControlItemLayer || layer != null)
+                {
+                    if (moveLayer != null)
+                    {
+                        ILayer tempLayer = null;
+                        for (int i = 0; i < focusMap.LayerCount; i++)
+                        {
+                            tempLayer = focusMap.get_Layer(i);
+                            if (tempLayer == layer)
+                            {
+                                toIndex = i;
+                            }
+                        }
+                    }
+                }
+                else if (item == esriTOCControlItem.esriTOCControlItemMap)
+                {
+                    toIndex = 0;
+                }
+                else if (item == esriTOCControlItem.esriTOCControlItemNone)
+                {
+                    toIndex = focusMap.LayerCount - 1;
+                }
+                focusMap.MoveLayer(moveLayer, toIndex);
+                mainMapControl.ActiveView.Refresh();
+                axTOCControl.Update();
+            }
+        }
+        #endregion
     }
 }
